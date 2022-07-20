@@ -4,6 +4,7 @@ import Image from "next/image";
 import styles from "../styles/Home.module.css";
 import CartMenu from "./../components/cartmenu/CartMenu";
 import jwt_decode from "jwt-decode";
+import MainSlider from "../components/MainSlider"
 
 const Home: NextPage = () => {
   var decoded = jwt_decode(
@@ -23,6 +24,8 @@ const Home: NextPage = () => {
       <main className={styles.main}>
         <CartMenu />
       </main>
+    <div>
+      <MainSlider/>
     </div>
   );
 };

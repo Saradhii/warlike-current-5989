@@ -14,10 +14,15 @@
     "@mui/icons-material": "^5.8.4",
     "@mui/material": "^5.9.1",
     "jwt-decode": "^3.1.2",
+    "styled-components": "^5.3.5"
     "next": "12.2.2",
     "react": "18.2.0",
+    "react-carousel-npm": "^0.1.4",
     "react-dom": "18.2.0",
-    "styled-components": "^5.3.5"
+    "react-icons": "^4.4.0",
+    "react-slick": "^0.29.0",
+    "scrolling-slider-gallery": "^0.2.0",
+    "swiper": "^8.3.1"
   },
   "devDependencies": {
     "@types/node": "18.0.6",
