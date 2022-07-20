@@ -36,6 +36,8 @@ const Home: NextPage = () => {
         <Button onClick={() => setIsOpen(!isOpen)}>{"right"}</Button>
         <CartMenu isOpen={isOpen} toggleDrawer={toggleDrawer} />
       </main>
+    <div>
+      <MainSlider/>
     </div>
   );
 };
