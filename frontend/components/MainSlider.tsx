@@ -30,7 +30,6 @@ const MainSlider = () => {
           </a>
           <h5>BEAUTY BUNDLE 3</h5>
         </div>
-       
       </div>
       <div className={style.h3}>
         <h3>
@@ -38,23 +37,69 @@ const MainSlider = () => {
         </h3>
       </div>
       <div className={style.subscription}>
-         <div>
-             <div>
-              <h4>1 MONTH</h4>
-              <p>SUBSCRIPTION</p>
-             </div>
-             <div>
-              <h4>Rs. 599.00</h4>
-              <p>/per month</p>
-             </div>
-             <div>
-              <p>ONE TIME PAYMENT</p>
-              <h4>Rs. 599.00</h4>
-             </div>
-             <div>
-               <button>ADD TO CART</button>
-             </div>
-         </div>
+        <div>
+          <div>
+            <h4>1 MONTH</h4>
+            <p>SUBSCRIPTION</p>
+          </div>
+          <div>
+            <h4>Rs. 599.00</h4>
+            <p>/per month</p>
+          </div>
+          <div>
+            <p>ONE TIME PAYMENT</p>
+            <h4>Rs. 599.00</h4>
+          </div>
+          <div>
+            <button>ADD TO CART</button>
+          </div>
+        </div>
+      </div>
+      <br />
+      <br />
+      <div className={style.h3}>
+        <h3>
+          <span>PREVIOUS BAG</span>
+        </h3>
+      </div>
+      <div className={style.prev}>
+        <div>
+          <img src="https://cdn.shopify.com/s/files/1/0052/7551/6995/products/Women_sPage-2---Skincare-3_large.gif?v=1655088937" />
+          <h3>Jun'22 The Make It Reign Fab Bag</h3>
+          <p>
+            <span>from</span> Rs. 599.00
+          </p>
+        </div>
+        <div>
+          <img
+            src="https://cdn.shopify.com/s/files/1/0052/7551/6995/products/Skincare-2-With-BONUS_large.gif?v=1652238042"
+            alt=""
+          />
+          <h3>May'22 The AweSummer May Fab Bag</h3>
+          <p>
+            <span>from</span> Rs. 599.00
+          </p>
+        </div>
+        <div>
+          <img
+            src="https://cdn.shopify.com/s/files/1/0052/7551/6995/products/Women_sPage-Skincare-Reveal-3_1728264b-2e0f-4314-9a3c-0fde458d72a7_large.png?v=1649483317"
+            alt=""
+          />
+          <h3>Apr'22 The Sassy Spring Fab Bag</h3>
+          <p>
+            <span>from</span> Rs. 599.00
+          </p>
+        </div>
+        <div>
+          <img
+            src="https://cdn.shopify.com/s/files/1/0052/7551/6995/products/Women_sPage-Skincare-Reveal-3_large.png?v=1646971494"
+            alt=""
+          />
+          <h3>Mar'22 The Empow-HER Fab Bag</h3>
+          <p>
+            <span>from</span> Rs. 599.00
+          </p>
+        </div>
       </div>
     </>
   );
