@@ -1,11 +1,15 @@
 /* eslint-disable react/no-unescaped-entities */
 import React from "react";
 import style from "../styles/Home.module.css";
-import SliderGallery from 'scrolling-slider-gallery'
-import { FaQuoteLeft } from 'react-icons/fa';
-import { Slider } from 'react-carousel-npm';
 import Swipe from "./Swipe";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Pagination, Navigation } from "swiper";
 
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
+import Slido from "./Slido";
 const MainSlider = () => {
   const data = [
     {
@@ -140,16 +144,10 @@ const MainSlider = () => {
         </h3>
       </div>
       <div className={style.quote}>
-                  <FaQuoteLeft size={"40px"} ></FaQuoteLeft>
+      <Swipe/>
             </div>
-            {/* <Slider
-        sliderResource={data}
-        backgroundColor='#333C19'
-        dotColor='#333C19'
-        arrowsColor='#126C20'
-        arrowHoverColor='#64DF18'
-      /> */}
-        <Swipe/>
+         
+      
       </div>
       <div className={style.trend}>
         <p>#TRENDINGNOW AT THE GOSSIP CORNER</p>
@@ -186,9 +184,9 @@ const MainSlider = () => {
         </div>
        
       </div>
-      <br /><br /><br /><br /><br /><br />
+     
       <div className={style.slido}>  
-      {/* <SliderGallery itemSource={imagesItems}></SliderGallery> */}
+         <Slido/>
       </div>
     </>
   );
