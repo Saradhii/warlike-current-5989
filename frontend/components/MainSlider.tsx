@@ -4,6 +4,8 @@ import style from "../styles/Home.module.css";
 import SliderGallery from 'scrolling-slider-gallery'
 import { FaQuoteLeft } from 'react-icons/fa';
 import { Slider } from 'react-carousel-npm';
+import Swipe from "./Swipe";
+
 const MainSlider = () => {
   const data = [
     {
@@ -147,7 +149,7 @@ const MainSlider = () => {
         arrowsColor='#126C20'
         arrowHoverColor='#64DF18'
       /> */}
-        
+        <Swipe/>
       </div>
       <div className={style.trend}>
         <p>#TRENDINGNOW AT THE GOSSIP CORNER</p>
@@ -184,6 +186,7 @@ const MainSlider = () => {
         </div>
        
       </div>
+      <br /><br /><br /><br /><br /><br />
       <div className={style.slido}>  
       {/* <SliderGallery itemSource={imagesItems}></SliderGallery> */}
       </div>

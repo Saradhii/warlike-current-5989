@@ -209,3 +209,40 @@
     height: 50px;
     margin: 20px auto;
 }
+@media all and (min-width:391px) and (max-width:781px){
+    .h3{
+       width: 80%;
+    }
+    .subscription {
+        width: 65%;
+    }
+    .prev {
+        width: 90%;
+    }
+    .trend img {
+        height: 120px;
+    }
+}
+@media all and (min-width:51px) and (max-width:390px){
+    .MainSlider{
+        background-size: auto;
+        background-position: 45% top;
+    }
+    .h3{
+        width: 85%;
+     }
+     .subscription {
+         width: 90%;
+         margin: auto;
+     }
+     .subscription>div{
+        width: 90%;
+     }
+     .prev {
+         width: 90%;
+         flex-wrap: wrap;
+     }
+     .trend img {
+         height: 120px;
+     }
+}
