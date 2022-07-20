@@ -148,3 +148,23 @@
 .prev span {
   font-style: italic;
 }
+.trend p {
+    font-size: 20px;
+    font-family: Helvetica;
+    text-align: center;
+}
+.trend > div {
+    display: flex;
+    width: 100%;
+    left: 0%;
+    right: 0%;
+}
+.trend img {
+    width: 12.5%;
+    height: 160px;
+    vertical-align: top;
+    cursor: pointer;
+}
+.trend img:hover {
+    opacity: 0.5;
+}

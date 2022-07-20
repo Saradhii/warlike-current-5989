@@ -101,6 +101,41 @@ const MainSlider = () => {
           </p>
         </div>
       </div>
+      <div className={style.trend}>
+        <p>#TRENDINGNOW AT THE GOSSIP CORNER</p>
+        <div>
+          <img src="https://scontent.cdninstagram.com/v/t51.2885-15/294012533_774496537083821_7636241921144176121_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=8ae9d6&_nc_ohc=uGEZBliZeB0AX9EdUWP&_nc_ht=scontent.cdninstagram.com&edm=ANo9K5cEAAAA&oh=00_AT95Y5jXYx4VXv7T9XNzwTHpFGwgpWLD6Q7IOh9wg4uIEw&oe=62DCF1D0" />
+          <img
+            src="https://scontent.cdninstagram.com/v/t51.2885-15/293959375_579020320285854_5244741477978574095_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=8ae9d6&_nc_ohc=q9ytKsurdLkAX8bHEkG&_nc_ht=scontent.cdninstagram.com&edm=ANo9K5cEAAAA&oh=00_AT-_-PT9m9nc4K3TOOwsqnh1oTyLWuaBpEfeEOEevFtsuA&oe=62DD4EA1"
+            alt=""
+          />
+          <img
+            src="https://scontent.cdninstagram.com/v/t51.2885-15/294096759_450658463302958_4045206232575120004_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=8ae9d6&_nc_ohc=BBSZmx87ZN4AX_VylCI&_nc_ht=scontent.cdninstagram.com&edm=ANo9K5cEAAAA&oh=00_AT_S5ngvqFe0CEhEmQ4OoWZldT294XqZ6gtC-DD89P2Anw&oe=62DCD267"
+            alt=""
+          />
+          <img
+            src="https://scontent.cdninstagram.com/v/t51.2885-15/293617207_5536613459723455_8499228947971252628_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=8ae9d6&_nc_ohc=aKbuVQwQG9wAX-2e5Qt&_nc_ht=scontent.cdninstagram.com&edm=ANo9K5cEAAAA&oh=00_AT9r48xxokIB3Q-lKW3XpomPsreDMubA1Nu01etcR2RN2A&oe=62DC388C"
+            alt=""
+          />
+          <img
+            src="https://scontent.cdninstagram.com/v/t51.2885-15/293532479_5691905357489043_4455083400628979450_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=8ae9d6&_nc_ohc=ZbjzuWdsIh4AX_VhL7O&_nc_ht=scontent.cdninstagram.com&edm=ANo9K5cEAAAA&oh=00_AT_g91o5ZlQTnWKmuoZZ-OTuTNy7OwkHJbxyaYHCgBV4jQ&oe=62DD652B"
+            alt=""
+          />
+          <img
+            src="https://scontent.cdninstagram.com/v/t51.2885-15/293796907_719156479372990_2032374052008623233_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=8ae9d6&_nc_ohc=_BYhzM9PPhcAX8EYZIx&_nc_ht=scontent.cdninstagram.com&edm=ANo9K5cEAAAA&oh=00_AT9B4WTRqJ8w0n0l_ZjgQWEEusILLckhLQAq_CyDZJKkFg&oe=62DBDF8B"
+            alt=""
+          />
+          <img
+            src="https://scontent.cdninstagram.com/v/t51.2885-15/293555444_5297172007040895_7963287136178689016_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=8ae9d6&_nc_ohc=VjV_91G0yT8AX996VeF&_nc_ht=scontent.cdninstagram.com&edm=ANo9K5cEAAAA&oh=00_AT9Sr0h5-UTVVFgtrtEBvg8fAlZ-NYHFxFobMVTYTPOfVw&oe=62DC5628"
+            alt=""
+          />
+           <img
+          src="https://scontent.cdninstagram.com/v/t51.2885-15/292496827_2265658226924157_432551984701791306_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=8ae9d6&_nc_ohc=ng8aiVkOepkAX-om2Cd&_nc_ht=scontent.cdninstagram.com&edm=ANo9K5cEAAAA&oh=00_AT86G_iN2wq0h70tFISInABIbWC71s6G-kvnwUBEhUYiSQ&oe=62DD02D5"
+          alt=""
+        />
+        </div>
+       
+      </div>
     </>
   );
 };
