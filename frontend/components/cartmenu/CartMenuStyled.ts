@@ -33,15 +33,12 @@ export const CartMenuStyled = styled.div`
         transform: rotate(0);
         transition: transform 0.3s ease;
         font-size: 2rem;
-      }
-
-      :hover {
-        color: #e5b95f;
-
-        > svg {
+        :hover {
+          color: #e5b95f;
           transform: rotate(90deg);
         }
       }
+
     }
   }
 
@@ -55,14 +52,23 @@ export const CartMenuStyled = styled.div`
       list-style: none;
       display: flex;
       gap: 10px;
+      justify-content: space-between;
 
       > div {
-        font-size: 14px;
+        font-size: 16px;
 
         > .product-name {
           margin-top: 0;
+          min-width: 238px;
+          max-width: 302px;
+
           > a {
             color: #222222;
+            transition: all 0.5s;
+
+            :hover {
+              color: #e5b95f;
+            }
           }
         }
 
@@ -75,20 +81,24 @@ export const CartMenuStyled = styled.div`
           }
         }
       }
+
+      > a:nth-child(1) {
+        width: 40%;
+      }
+
       > a {
+        
         > svg {
+          font-size: 15px;
           transform: rotate(298deg);
           transform: rotate(0);
           transition: transform 0.3s ease;
-        }
-
-        :hover {
-          color: #e5b95f;
-
-          > svg {
-            transform: rotate(90deg);
+          :hover {
+            color: #e5b95f;
+              transform: rotate(90deg);
           }
         }
+
       }
     }
   }
@@ -159,6 +169,7 @@ export const CartMenuStyled = styled.div`
         margin-top: 10px;
         letter-spacing: 1px;
         transition: all 0.25s;
+        cursor: pointer;
 
         :hover {
           background-color: #252525 !important;

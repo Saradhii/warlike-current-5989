@@ -14,7 +14,12 @@ import Image from "next/image";
 import CloseIcon from "@mui/icons-material/Close";
 import { CartMenuStyled } from "./CartMenuStyled";
 
-type Anchor = "top" | "left" | "bottom" | "right";
+type Anchor = "right";
+
+type propType = {
+  isOpen: boolean;
+  toggleDrawer: (open: boolean) => (event: React.KeyboardEvent | React.MouseEvent) => void;
+}
 
 type product = {
   image: string;
@@ -23,14 +28,9 @@ type product = {
   quantity: number;
 };
 
-const CartMenu = () => {
-  const [state, setState] = React.useState({
-    top: false,
-    left: false,
-    bottom: false,
-    right: false,
-  });
+const CartMenu = ({isOpen,toggleDrawer}:propType) => {
 
+  const [total, setTotal] = React.useState(0);
   const [cartData, setCartData] = React.useState<product[]>([
     {
       image:
@@ -39,88 +39,81 @@ const CartMenu = () => {
       quantity: 1,
       price: 599,
     },
+    {
+      image:
+        "https://cdn.shopify.com/s/files/1/0052/7551/6995/products/c2p-pro-epic-matte-lip-ink-set-4_small.jpg?v=1634904385",
+      name: "C2P Pro Epic matte lip ink - 04 Lustrous Fuschsia",
+      quantity: 1,
+      price: 1199,
+    },
   ]);
 
-  const toggleDrawer =
-    (anchor: Anchor, open: boolean) =>
-    (event: React.KeyboardEvent | React.MouseEvent) => {
-      if (
-        event &&
-        event.type === "keydown" &&
-        ((event as React.KeyboardEvent).key === "Tab" ||
-          (event as React.KeyboardEvent).key === "Shift")
-      ) {
-        return;
-      }
 
-      setState({ ...state, [anchor]: open });
+
+  React.useEffect(() => {
+    const countTotal = () => {
+      const t = cartData.reduce((a, el: product) => {
+        a += el.price;
+        return a;
+      }, 0);
+      setTotal(t);
     };
 
+    countTotal();
+  }, [cartData]);
+
+
   const list = (anchor: Anchor) => (
-    <Box
-      sx={{ width: anchor === "top" || anchor === "bottom" ? "auto" : "auto" }}
-      role="presentation"
-      onClick={toggleDrawer(anchor, false)}
-      onKeyDown={toggleDrawer(anchor, false)}
-    >
+    <Box sx={{ width: "auto" }} role="presentation">
       <CartMenuStyled>
         <div className="continue-shoping">
           <span data-translate="header.my_cart">My Cart</span>
           <a>
-            <CloseIcon />
+            <CloseIcon
+              onClick={toggleDrawer(false)}
+              onKeyDown={toggleDrawer(false)}
+            />
           </a>
         </div>
 
         <List className="cart-list">
           {cartData &&
-            cartData.map((el) => {
+            cartData.map((el: product, i: number) => {
               return (
-                <li key={el.name} className="item" id="cart-item">
-                  <a
-                    href="/"
-                    title="The Beauty Bundle July Fab Bag"
-                    className="product-image"
-                  >
-                    <Image
-                      width={83}
-                      height={52}
-                      src={el.image}
-                      alt="The Beauty Bundle July Fab Bag"
-                    />
-                  </a>
-                  <div className="product-inner">
-                    <p className="product-name">
-                      <a href="/">
-                        <span className="lang1">
-                          The Beauty Bundle July Fab Bag
-                        </span>
-                        <span className="lang2">
-                          The Beauty Bundle July Fab Bag
-                        </span>
-                      </a>
-                    </p>
-                    <div className="option"></div>
-                    <div className="cart-collateral">
-                      <span className="qty-cart" data-translate="header.qty">
-                        Qty: 1
-                      </span>
-                      <span className="price">Rs. 599.00</span>
-                    </div>
-                  </div>
-                  <a href="/" title="Remove Item" className="btn-remove">
-                    <svg
-                      viewBox="64 64 896 896"
-                      focusable="false"
-                      data-icon="close"
-                      width="1em"
-                      height="1em"
-                      fill="currentColor"
-                      aria-hidden="true"
+                <React.Fragment key={i}>
+                  {i !== 0 && <Divider sx={{ margin: "24px 0px" }} />}
+                  <li className="item" id="cart-item">
+                    <a
+                      href="/"
+                      title="The Beauty Bundle July Fab Bag"
+                      className="product-image"
                     >
-                      <path d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 00203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"></path>
-                    </svg>
-                  </a>
-                </li>
+                      <Image
+                        width={96}
+                        height={96}
+                        src={el.image}
+                        alt="The Beauty Bundle July Fab Bag"
+                      />
+                    </a>
+                    <div className="product-inner">
+                      <p className="product-name">
+                        <a href="/">
+                          <span className="lang1">{el.name}</span>
+                        </a>
+                      </p>
+                      <div className="option"></div>
+                      <div className="cart-collateral">
+                        <span className="qty-cart" data-translate="header.qty">
+                          Qty: {el.quantity}
+                        </span>
+                        <span className="price">Rs. {el.price.toFixed(2)}</span>
+                      </div>
+                    </div>
+                    <a href="/" title="Remove Item" className="btn-remove">
+                      <CloseIcon />
+                    </a>
+                  </li>
+                </React.Fragment>
               );
             })}
         </List>
@@ -131,7 +124,7 @@ const CartMenu = () => {
               <span className="label" data-translate="header.total">
                 Total:
               </span>
-              <span className="price">Rs. 599.00</span>
+              <span className="price">Rs. {total.toFixed(2)}</span>
             </p>
           </div>
           <div className="actions">
@@ -158,37 +151,18 @@ const CartMenu = () => {
 
   return (
     <div>
-      {(["left", "right", "top", "bottom"] as const).map((anchor) => (
-        <React.Fragment key={anchor}>
-          <Button onClick={toggleDrawer(anchor, true)}>{anchor}</Button>
-          <SwipeableDrawer
-            anchor={anchor}
-            open={state[anchor]}
-            onClose={toggleDrawer(anchor, false)}
-            onOpen={toggleDrawer(anchor, true)}
-          >
-            {list(anchor)}
-          </SwipeableDrawer>
-        </React.Fragment>
-      ))}
+      <React.Fragment key={"right"}>
+        <SwipeableDrawer
+          anchor={"right"}
+          open={isOpen}
+          onClose={toggleDrawer(false)}
+          onOpen={toggleDrawer(true)}
+        >
+          {list("right")}
+        </SwipeableDrawer>
+      </React.Fragment>
     </div>
   );
 };
 
 export default CartMenu;
-
-// import { Button, Drawer, Space } from "antd";
-// import type { DrawerProps } from "antd/es/drawer";
-// import React, { useState } from "react";
-// import { CartMenuStyled } from "./CartMenuStyled";
-
-// const CartMenu: React.FC = () => {
-//   const [visible, setVisible] = useState(false);
-
-//   const showDefaultDrawer = () => {
-//     setVisible(true);
-//   };
-
-//   const onClose = () => {
-//     setVisible(false);
-//   };
