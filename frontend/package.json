@@ -11,7 +11,11 @@
   "dependencies": {
     "next": "12.2.2",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-carousel-npm": "^0.1.4",
+    "react-dom": "18.2.0",
+    "react-icons": "^4.4.0",
+    "react-slick": "^0.29.0",
+    "scrolling-slider-gallery": "^0.2.0"
   },
   "devDependencies": {
     "@types/node": "18.0.6",
