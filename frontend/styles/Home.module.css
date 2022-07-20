@@ -115,13 +115,14 @@
   color: #333;
 }
 .prev {
-  display: flex;
-  justify-content: space-between;
+  display:grid;
+  grid-template-columns: repeat(4,23%);
+ gap: 25px;
   margin: 30px auto;
   width: 75%;
 }
 .prev > div {
-  width: 23%;
+ 
   height: 250px;
   cursor: pointer;
 }
@@ -216,18 +217,20 @@
     }
     .prev {
         width: 90%;
+        grid-template-columns: repeat(2,50%);
     }
     .trend img {
         height: 120px;
     }
 }
-@media all and (min-width:51px) and (max-width:390px){
+@media all and (min-width:51px) and (max-width:391px){
     .MainSlider{
         background-size: auto;
         background-position: 45% top;
     }
     .h3{
-        width: 85%;
+        width: 95%;
+        /* background: #000; */
      }
      .subscription {
          width: 90%;
@@ -238,9 +241,9 @@
      }
      .prev {
          width: 90%;
-         flex-wrap: wrap;
+         grid-template-columns: repeat(1,90%);
      }
      .trend img {
-         height: 120px;
+         height: 90px;
      }
 }

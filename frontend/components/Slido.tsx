@@ -1,6 +1,7 @@
 import React, { useRef, useState } from "react";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
+import style from "./Swipe.module.css";
 
 // Import Swiper styles
 import "swiper/css";
@@ -26,7 +27,7 @@ export default function Slido() {
             disableOnInteraction: true,
           }}
         modules={[Autoplay]}
-        className="mySwiper"
+        className={style.third}
       >
         <SwiperSlide><img src="https://cdn.shopify.com/s/files/1/0052/7551/6995/files/sugar_1_160x160.jpg?v=1548837170" alt="" /></SwiperSlide>
         <SwiperSlide><img src="https://cdn.shopify.com/s/files/1/0052/7551/6995/files/Plum_Logo_For_Olive_and_Macadamia_Hair_Spa_Kit_160x160.png?v=1625063052" alt="" /></SwiperSlide>
