@@ -19,3 +19,32 @@ a {
 .MuiPaper-root {
   width: 20%;
 }
+
+@media (min-width: 60px) {
+  .MuiPaper-root {
+    width: 70%;
+  }
+}
+
+@media (min-width: 880px) {
+  .MuiPaper-root {
+    width: 50%;
+  }
+}
+
+@media (min-width: 1000px) {
+  .MuiPaper-root {
+    width: 20%;
+  }
+}
+
+
+@media (min-width: 1200px) {
+  .MuiPaper-root {
+    width: 20%;
+  }
+}
+
+.MuiBackdrop-root:hover {
+  cursor: url("https://cdn.shopify.com/s/files/1/0052/7551/6995/t/3/assets/cursor-x.png?v=103455633127848676381547811770"), pointer;
+}
