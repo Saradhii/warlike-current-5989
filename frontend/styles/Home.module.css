@@ -24,7 +24,7 @@
     line-height: 36px;
     color: #222;
     display: inline-block;
-   
+    font-family: poppins;
     margin-bottom: 30px;
     letter-spacing: -.5px;
     
@@ -62,4 +62,58 @@
     /* margin-bottom: 20px; */
     margin-top: 9px;
     font-size: 18px;
+}
+.subscription {
+    width: 50%;
+    margin: auto;
+    box-sizing: border-box;
+    font-family: poppins;
+}
+.subscription > div {
+    width:50%;
+}
+.subscription>div >div {
+    border: 1px solid #dfe4e6;
+    padding: 17px;
+    text-align: center;
+    font-family: Poppins;
+}
+.subscription h4{
+    font-size: 20px;
+    font-weight: 700;
+    font-family: inherit;
+}
+.subscription p{
+   
+    margin-top: -19px;
+}
+.subscription>div>div:nth-child(3){
+    padding-bottom: 200px;
+}
+.subscription>div>div:nth-child(3) p{
+    margin-top: 20px;
+}
+.subscription>div>div:nth-child(3) h4{
+    margin-top: -11px;
+}
+.subscription>div>div:last-child{
+    width: 100%;
+    background-color: #e5b95f;
+    border: 1px solid #ffffff;
+    color: #ffffff;
+    
+}
+.subscription button {
+    width: 100%;
+    padding: 10px;
+    background-color: #e5b95f;
+    border: 1px solid #ffffff;
+    color: #ffffff;
+    border-radius: 4px;
+    font-weight: 700;
+    padding: 8px 0 8px 0;
+    cursor: pointer;
+}
+.subscription button:hover{
+    color: #333;
 }

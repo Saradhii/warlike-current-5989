@@ -30,6 +30,31 @@ const MainSlider = () => {
           </a>
           <h5>BEAUTY BUNDLE 3</h5>
         </div>
+       
+      </div>
+      <div className={style.h3}>
+        <h3>
+          <span>SUBSCRIPTION</span>
+        </h3>
+      </div>
+      <div className={style.subscription}>
+         <div>
+             <div>
+              <h4>1 MONTH</h4>
+              <p>SUBSCRIPTION</p>
+             </div>
+             <div>
+              <h4>Rs. 599.00</h4>
+              <p>/per month</p>
+             </div>
+             <div>
+              <p>ONE TIME PAYMENT</p>
+              <h4>Rs. 599.00</h4>
+             </div>
+             <div>
+               <button>ADD TO CART</button>
+             </div>
+         </div>
       </div>
     </>
   );
