@@ -26,7 +26,6 @@ const CartPage = () => {
     axios
       .get(`http://localhost:8080/cart/getCartData/${"12345devesh"}`)
       .then((res) => {
-        console.log("res:", res);
         setCartData(res.data.data);
       })
       .catch((err) => console.log(err));
