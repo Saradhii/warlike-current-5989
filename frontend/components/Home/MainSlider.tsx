@@ -1,6 +1,6 @@
 /* eslint-disable react/no-unescaped-entities */
 import React from "react";
-import style from "../styles/Home.module.css";
+import style from "../../styles/Home.module.css";
 import Swipe from "./Swipe";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Navigation } from "swiper";
@@ -14,31 +14,31 @@ const MainSlider = () => {
   const data = [
     {
       image:
-        'https://images.pexels.com/photos/10161004/pexels-photo-10161004.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
+        "https://images.pexels.com/photos/10161004/pexels-photo-10161004.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
       description: `Duis sed bibendum libero. Vestibulum ut enim vitae leo finibus condimentum ut sit amet quam. Maecenas eget malesuada sem, id ultrices diam. `,
     },
     {
       image:
-        'https://images.pexels.com/photos/10166802/pexels-photo-10166802.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
+        "https://images.pexels.com/photos/10166802/pexels-photo-10166802.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
       description: `Duis sed bibendum libero. Vestibulum ut enim vitae leo finibus condimentum ut sit amet quam. Maecenas eget malesuada sem, id ultrices diam. `,
     },
     {
       image:
-        'https://worlduniversityofdesign.ac.in/assets/images/bgs/school-of-visual-arts-banner.jpg',
+        "https://worlduniversityofdesign.ac.in/assets/images/bgs/school-of-visual-arts-banner.jpg",
       description: `Duis sed bibendum libero. Vestibulum ut enim vitae leo finibus condimentum ut sit amet quam. Maecenas eget malesuada sem, id ultrices diam. `,
     },
     {
       image:
-        'https://images.pexels.com/photos/10166802/pexels-photo-10166802.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
+        "https://images.pexels.com/photos/10166802/pexels-photo-10166802.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
       description: `Duis sed bibendum libero. Vestibulum ut enim vitae leo finibus condimentum ut sit amet quam. Maecenas eget malesuada sem, id ultrices diam. `,
     },
     {
       image:
-        'https://worlduniversityofdesign.ac.in/assets/images/bgs/school-of-visual-arts-banner.jpg',
+        "https://worlduniversityofdesign.ac.in/assets/images/bgs/school-of-visual-arts-banner.jpg",
       description: `Duis sed bibendum libero. Vestibulum ut enim vitae leo finibus condimentum ut sit amet quam. Maecenas eget malesuada sem, id ultrices diam. `,
     },
   ];
-  
+
   return (
     <>
       <div className={style.MainSlider}></div>
@@ -138,16 +138,14 @@ const MainSlider = () => {
         </div>
       </div>
       <div className={style.test}>
-      <div className={style.h3}>
-        <h3>
-          <span>TESTIMONIALS</span>
-        </h3>
-      </div>
-      <div className={style.quote}>
-      <Swipe/>
-            </div>
-         
-      
+        <div className={style.h3}>
+          <h3>
+            <span>TESTIMONIALS</span>
+          </h3>
+        </div>
+        <div className={style.quote}>
+          <Swipe />
+        </div>
       </div>
       <div className={style.trend}>
         <p>#TRENDINGNOW AT THE GOSSIP CORNER</p>
@@ -177,16 +175,15 @@ const MainSlider = () => {
             src="https://scontent.cdninstagram.com/v/t51.2885-15/293555444_5297172007040895_7963287136178689016_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=8ae9d6&_nc_ohc=VjV_91G0yT8AX996VeF&_nc_ht=scontent.cdninstagram.com&edm=ANo9K5cEAAAA&oh=00_AT9Sr0h5-UTVVFgtrtEBvg8fAlZ-NYHFxFobMVTYTPOfVw&oe=62DC5628"
             alt=""
           />
-           <img
-          src="https://scontent.cdninstagram.com/v/t51.2885-15/292496827_2265658226924157_432551984701791306_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=8ae9d6&_nc_ohc=ng8aiVkOepkAX-om2Cd&_nc_ht=scontent.cdninstagram.com&edm=ANo9K5cEAAAA&oh=00_AT86G_iN2wq0h70tFISInABIbWC71s6G-kvnwUBEhUYiSQ&oe=62DD02D5"
-          alt=""
-        />
+          <img
+            src="https://scontent.cdninstagram.com/v/t51.2885-15/292496827_2265658226924157_432551984701791306_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=8ae9d6&_nc_ohc=ng8aiVkOepkAX-om2Cd&_nc_ht=scontent.cdninstagram.com&edm=ANo9K5cEAAAA&oh=00_AT86G_iN2wq0h70tFISInABIbWC71s6G-kvnwUBEhUYiSQ&oe=62DD02D5"
+            alt=""
+          />
         </div>
-       
       </div>
-     
-      <div className={style.slido}>  
-         <Slido/>
+
+      <div className={style.slido}>
+        <Slido />
       </div>
     </>
   );

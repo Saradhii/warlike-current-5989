@@ -38,7 +38,6 @@ export const CartMenuStyled = styled.div`
           transform: rotate(90deg);
         }
       }
-
     }
   }
 
@@ -59,8 +58,7 @@ export const CartMenuStyled = styled.div`
 
         > .product-name {
           margin-top: 0;
-          min-width: 238px;
-          max-width: 302px;
+          width: 240px;
 
           > a {
             color: #222222;
@@ -87,7 +85,6 @@ export const CartMenuStyled = styled.div`
       }
 
       > a {
-        
         > svg {
           font-size: 15px;
           transform: rotate(298deg);
@@ -95,10 +92,9 @@ export const CartMenuStyled = styled.div`
           transition: transform 0.3s ease;
           :hover {
             color: #e5b95f;
-              transform: rotate(90deg);
+            transform: rotate(90deg);
           }
         }
-
       }
     }
   }
