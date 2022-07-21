@@ -1,0 +1,91 @@
+/* * {
+  margin: 0px;
+  padding: 0px;
+} */
+.mainContainer {
+  display: flex;
+  align-items: center;
+
+  justify-content: space-between;
+
+  font-family: sans-serif;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+.mainContainer h3 {
+  color: rgb(245, 204, 121);
+  cursor: pointer;
+}
+.mainContainer span {
+  cursor: pointer;
+  font-size: 20px;
+  padding: 10px;
+  color: rgb(245, 204, 121);
+}
+.mainContainer img {
+  width: 200px;
+  cursor: pointer;
+}
+
+.drawerMain1 {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+}
+.drawerMain2 {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+.drawerMain3 {
+  width: 90%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.drawerMain3 input {
+    width: 100%;
+    color: #000;
+    background: none;
+    border: none;
+    border-bottom: 2px solid #ddd;
+    font-weight: 700;
+    padding: 6px 0 20px;
+    height: auto;
+    text-transform: lowercase;
+    font-size: 36px;
+    outline: none;
+}
+.drawerMain3 span{
+    position: absolute;
+    right: 0;
+   
+    width: 55px;
+    height: 75px;
+    line-height: 75px;
+    color: #bcbbb9;
+    font-size: 18px;
+    border: 0;
+    border-radius: 0 5px 5px 0;
+    -webkit-border-radius: 0px 5px 5px 0px;
+    -moz-border-radius: 0px 5px 5px 0px;
+    z-index: 99;
+    background-color: transparent;
+}
+ .dropDown{
+    display: flex;
+    position: fixed;
+    top: 50px;
+    right: 40px;
+    flex-direction: column;
+    background-color: white;
+color: black;
+width: auto;
+height: 200px;
+}
+
+#userIcon:hover .mainContainer{
+  
+}
