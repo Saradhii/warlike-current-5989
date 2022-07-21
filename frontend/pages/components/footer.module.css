@@ -6,10 +6,13 @@
   color: #7d7d7d;
   line-height: 30px;
   text-align: center;
+  margin: 40px;
+  padding-bottom: 30px;
 }
 .footerContainer {
-  width: 100vw;
+  width: 90vw;
   display: grid;
+  margin: auto;
   grid-template-columns: repeat(3, 1fr);
 }
 .footerContainer > div > ul > li {
@@ -97,4 +100,37 @@
   justify-content: center;
   border-radius: 50%;
   background-color: #f3f3f3;
+  cursor: pointer;
+}
+.sociallogo {
+  fill: #7d7d7d;
+  height: 15px;
+}
+.facebook:hover,
+.facebook:hover > svg {
+  background-color: #337ab7;
+  fill: white;
+}
+.twitter:hover,
+.twitter:hover > svg {
+  background-color: #1c9cea;
+  fill: white;
+}
+.youtube:hover,
+.youtube:hover > svg {
+  background-color: #f70000;
+  fill: white;
+}
+.insta:hover,
+.insta:hover > svg {
+  fill: white;
+  background: linear-gradient(
+    45deg,
+    #405de6,
+    #5851db,
+    #833ab4,
+    #c13584,
+    #e1306c,
+    #fd1d1d
+  );
 }

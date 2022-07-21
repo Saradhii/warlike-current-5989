@@ -1,7 +1,6 @@
 import { NextPage } from "next";
 import styles from "./footer.module.css";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { fa0 } from "@fortawesome/free-solid-svg-icons";
+import { Facebook, Instagram, Twitter, YouTube } from "@mui/icons-material";
 const Footer: NextPage = () => {
   return (
     <div className={styles.footermaincont}>
@@ -39,12 +38,18 @@ const Footer: NextPage = () => {
         </div>
       </div>
       <div className={styles.socialmedia}>
-        <div>
-          <FontAwesomeIcon icon={fa0} />
+        <div className={styles.facebook}>
+          <Facebook className={styles.sociallogo} />
         </div>
-        <div></div>
-        <div></div>
-        <div></div>
+        <div className={styles.twitter}>
+          <Twitter className={styles.sociallogo} />
+        </div>
+        <div className={styles.insta}>
+          <Instagram className={styles.sociallogo} />
+        </div>
+        <div className={styles.youtube}>
+          <YouTube className={styles.sociallogo} />
+        </div>
       </div>
       <p>Copyright © 2021 fabbag.com All rights reserved.</p>
     </div>
