@@ -15,7 +15,7 @@
     "@mui/material": "^5.9.1",
     "eslint-plugin-react-hooks": "^4.7.0-next-3ddbedd05-20220719",
     "jwt-decode": "^3.1.2",
-    "styled-components": "^5.3.5"
+    "styled-components": "^5.3.5",
     "next": "12.2.2",
     "react": "18.2.0",
     "react-carousel-npm": "^0.1.4",
