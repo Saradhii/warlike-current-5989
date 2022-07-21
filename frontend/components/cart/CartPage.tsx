@@ -6,11 +6,15 @@ import Image from "next/image";
 import { product } from "../cartmenu/Cartmenu";
 import axios from "axios";
 
-const CartPage = () => {
+const CartPage = ({ Data }: any) => {
   const [total, setTotal] = React.useState(0);
-  const [cartData, setCartData] = React.useState<product[]>([]);
+  const [cartData, setCartData] = React.useState<product[]>(Data.data);
+  let updateTimer: any;
 
   React.useEffect(() => {
+    if (!cartData) {
+      return;
+    }
     const countTotal = () => {
       const t = cartData.reduce((a, el: product) => {
         a += el.quantity * el.price;
@@ -22,14 +26,33 @@ const CartPage = () => {
     countTotal();
   }, [cartData]);
 
-  React.useEffect(() => {
-    axios
-      .get(`http://localhost:8080/cart/getCartData/${"12345devesh"}`)
-      .then((res) => {
-        setCartData(res.data.data);
-      })
-      .catch((err) => console.log(err));
-  }, []);
+  const updateCart = (
+    product_id: string,
+    userid: string,
+    quantity: number,
+    updateTimer: any
+  ) => {
+    if (typeof quantity !== "number") {
+      return;
+    }
+
+    if (updateTimer) {
+      clearTimeout(updateTimer);
+    }
+
+    updateTimer = setTimeout(() => {
+      axios
+        .patch("http://localhost:8080/cart/updateCart", {
+          product_id,
+          userid,
+          quantity,
+        })
+        .then((res) => {
+          setCartData(res.data.data);
+        })
+        .catch((err) => console.log(err));
+    }, 1000);
+  };
 
   return (
     <CartPageStyled>
@@ -51,52 +74,62 @@ const CartPage = () => {
                 </tr>
               </thead>
               <tbody>
-                {cartData.map((item: product, i: number) => (
-                  <tr key={i}>
-                    <td className="image">
-                      <div className="product_image">
-                        <a href="/products/c2p-pro-epic-matte-lip-ink-04-lustrous-fuschsia?variant=39557881102382">
-                          <Image
-                            width={"160px"}
-                            height={"100%"}
-                            src={item.image}
-                            alt="C2P Pro Epic matte lip ink - 04 Lustrous Fuschsia"
-                          />
+                {cartData &&
+                  cartData.map((item: product, i: number) => (
+                    <tr key={i}>
+                      <td className="image">
+                        <div className="product_image">
+                          <a href="/products/c2p-pro-epic-matte-lip-ink-04-lustrous-fuschsia?variant=39557881102382">
+                            <Image
+                              width={"160px"}
+                              height={"100%"}
+                              src={item.image}
+                              alt="C2P Pro Epic matte lip ink - 04 Lustrous Fuschsia"
+                            />
+                          </a>
+                        </div>
+                      </td>
+                      <td className="item">
+                        <a href="/products">
+                          <span className="lang1">{item.name}</span>
                         </a>
-                      </div>
-                    </td>
-                    <td className="item">
-                      <a href="/products">
-                        <span className="lang1">{item.name}</span>
-                      </a>
-                    </td>
-                    <td className="qty">
-                      <input
-                        type="text"
-                        name="quantity"
-                        defaultValue={item.quantity}
-                        className="tc item-quantity"
-                      />
-                    </td>
-                    <td className="price">
-                      <span className="saso-cart-item-line-price">
-                        Rs.{" "}
-                        {(item.quantity * item.price).toLocaleString(
-                          undefined,
-                          { minimumFractionDigits: 2 }
-                        )}
-                      </span>
-                    </td>
-                    <td className="remove">
-                      <a
-                        className="remove-cart"
-                        href="/cart/change?line=1&amp;quantity=0"
-                      >
-                        <CloseIcon />
-                      </a>
-                    </td>
-                  </tr>
-                ))}
+                      </td>
+                      <td className="qty">
+                        <input
+                          type="number"
+                          name="quantity"
+                          onChange={(e) =>
+                            updateCart(
+                              item._id,
+                              item.userid,
+                              +e.target.value,
+                              updateTimer
+                            )
+                          }
+                          min={"0"}
+                          defaultValue={item.quantity}
+                          className="tc item-quantity"
+                        />
+                      </td>
+                      <td className="price">
+                        <span className="saso-cart-item-line-price">
+                          Rs.{" "}
+                          {(item.quantity * item.price).toLocaleString(
+                            undefined,
+                            { minimumFractionDigits: 2 }
+                          )}
+                        </span>
+                      </td>
+                      <td className="remove">
+                        <a
+                          className="remove-cart"
+                          href="/cart/change?line=1&amp;quantity=0"
+                        >
+                          <CloseIcon />
+                        </a>
+                      </td>
+                    </tr>
+                  ))}
               </tbody>
             </table>
           </div>

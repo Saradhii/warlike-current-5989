@@ -13,6 +13,7 @@ import MailIcon from "@mui/icons-material/Mail";
 import Image from "next/image";
 import CloseIcon from "@mui/icons-material/Close";
 import { CartMenuStyled } from "./CartMenuStyled";
+import axios from "axios";
 
 type Anchor = "right";
 
@@ -25,6 +26,7 @@ type propType = {
 
 export type product = {
   _id: string;
+  userid: string;
   image: string;
   name: string;
   price: number;
@@ -33,24 +35,7 @@ export type product = {
 
 const CartMenu = ({ isOpen, toggleDrawer }: propType) => {
   const [total, setTotal] = React.useState(0);
-  const [cartData, setCartData] = React.useState<product[]>([
-    {
-      _id: "",
-      image:
-        "https://cdn.shopify.com/s/files/1/0052/7551/6995/products/Women_sPage-1_small.gif?v=1656064858",
-      name: "The Beauty Bundle July Fab Bag",
-      quantity: 1,
-      price: 599,
-    },
-    {
-      _id: "",
-      image:
-        "https://cdn.shopify.com/s/files/1/0052/7551/6995/products/c2p-pro-epic-matte-lip-ink-set-4_small.jpg?v=1634904385",
-      name: "C2P Pro Epic matte lip ink - 04 Lustrous Fuschsia",
-      quantity: 1,
-      price: 1199,
-    },
-  ]);
+  const [cartData, setCartData] = React.useState<product[]>([]);
 
   React.useEffect(() => {
     const countTotal = () => {
@@ -63,6 +48,17 @@ const CartMenu = ({ isOpen, toggleDrawer }: propType) => {
 
     countTotal();
   }, [cartData]);
+
+  React.useEffect(() => {
+    axios
+      .get(
+        `http://localhost:8080/cart/getCartData/${"62d977ac547497a0d835e4db"}`
+      )
+      .then((res) => {
+        setCartData(res.data.data);
+      })
+      .catch((err) => console.log(err));
+  }, []);
 
   const list = (anchor: Anchor) => (
     <Box sx={{ width: "auto" }} role="presentation">

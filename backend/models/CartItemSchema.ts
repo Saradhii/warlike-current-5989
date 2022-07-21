@@ -1,18 +1,18 @@
 import mongoose from "mongoose";
 
 export type SchemaType = {
-  quantity: string;
+  quantity: number;
   _id: mongoose.Schema.Types.ObjectId;
-  userid: string;
+  userid: mongoose.Schema.Types.ObjectId;
   name: string;
   image: string;
   price: string;
 };
 
 const CartSchema = new mongoose.Schema<SchemaType>({
-  quantity: String,
+  quantity: Number,
   _id: mongoose.Schema.Types.ObjectId,
-  userid: String,
+  userid: mongoose.Schema.Types.ObjectId,
   name: String,
   image: String,
   price: String,

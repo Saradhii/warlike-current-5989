@@ -29,7 +29,7 @@ cartRoute.get("/getCartData/:id", async (req: Request, res: Response) => {
     .send({ message: "Cart is not empty", error: false, data });
 });
 
-cartRoute.post("/addItem", async (req, res) => {
+cartRoute.post("/addItem", async (req: Request, res: Response) => {
   if (req.body === "" && req.body === "undefined" && req.body === "true") {
     return res
       .status(200)
@@ -45,20 +45,25 @@ cartRoute.post("/addItem", async (req, res) => {
     .send({ message: "Product Added to the cart successfully.", error: false });
 });
 
-// cartRoute.post("/updateCart/:id", async (req, res) => {
-//   if (req.body === "" && req.body === "undefined" && req.body === "true") {
-//     return res
-//       .status(200)
-//       .send({ message: "Someting went wrong", error: true });
-//   }
+cartRoute.patch("/updateCart", async (req: Request, res: Response) => {
+  if (req.body === "" && req.body === "undefined" && req.body === "true") {
+    return res
+      .status(200)
+      .send({ message: "Someting went wrong", error: true });
+  }
 
-//   const data = Cart.updateOne();
+  const data = await Cart.updateOne(
+    { $and: [{ _id: req.body.product_id, userid: req.body.userid }] },
+    { $set: { quantity: req.body.quantity } }
+  );
 
-//   data.save();
+  const cartData = await Cart.find({ userid: req.body.userid });
 
-//   res
-//     .status(200)
-//     .send({ message: "Product Added to the cart successfully.", error: false });
-// });
+  return res.status(200).send({
+    message: "Cart data updated successfully",
+    error: false,
+    data: cartData,
+  });
+});
 
 export default cartRoute;
