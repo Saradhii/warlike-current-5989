@@ -3,10 +3,12 @@ import Head from "next/head";
 import Image from "next/image";
 import styles from "../styles/Home.module.css";
 import Button from "@mui/material/Button";
-import CartMenu from "./../components/cartmenu/CartMenu";
 import { useState } from "react";
+import MainSlider from "../components/Home/MainSlider";
+import CartMenu from "../components/cartmenu/Cartmenu";
 
 const Home: NextPage = () => {
+  // For header copy them to header and implement it
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
   const toggleDrawer =
@@ -33,11 +35,13 @@ const Home: NextPage = () => {
       </Head>
 
       <main className={styles.main}>
+        {/* For header copy them to header and implement it */}
         <Button onClick={() => setIsOpen(!isOpen)}>{"right"}</Button>
         <CartMenu isOpen={isOpen} toggleDrawer={toggleDrawer} />
       </main>
-    <div>
-      <MainSlider/>
+      <div>
+        <MainSlider />
+      </div>
     </div>
   );
 };
