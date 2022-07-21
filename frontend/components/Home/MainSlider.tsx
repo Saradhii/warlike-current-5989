@@ -1,6 +1,6 @@
 /* eslint-disable react/no-unescaped-entities */
 import React from "react";
-import style from "../styles/Home.module.css";
+import style from "../../styles/Home.module.css";
 import Swipe from "./Swipe";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Navigation } from "swiper";
@@ -11,34 +11,7 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 import Slido from "./Slido";
 const MainSlider = () => {
-  const data = [
-    {
-      image:
-        'https://images.pexels.com/photos/10161004/pexels-photo-10161004.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
-      description: `Duis sed bibendum libero. Vestibulum ut enim vitae leo finibus condimentum ut sit amet quam. Maecenas eget malesuada sem, id ultrices diam. `,
-    },
-    {
-      image:
-        'https://images.pexels.com/photos/10166802/pexels-photo-10166802.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
-      description: `Duis sed bibendum libero. Vestibulum ut enim vitae leo finibus condimentum ut sit amet quam. Maecenas eget malesuada sem, id ultrices diam. `,
-    },
-    {
-      image:
-        'https://worlduniversityofdesign.ac.in/assets/images/bgs/school-of-visual-arts-banner.jpg',
-      description: `Duis sed bibendum libero. Vestibulum ut enim vitae leo finibus condimentum ut sit amet quam. Maecenas eget malesuada sem, id ultrices diam. `,
-    },
-    {
-      image:
-        'https://images.pexels.com/photos/10166802/pexels-photo-10166802.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
-      description: `Duis sed bibendum libero. Vestibulum ut enim vitae leo finibus condimentum ut sit amet quam. Maecenas eget malesuada sem, id ultrices diam. `,
-    },
-    {
-      image:
-        'https://worlduniversityofdesign.ac.in/assets/images/bgs/school-of-visual-arts-banner.jpg',
-      description: `Duis sed bibendum libero. Vestibulum ut enim vitae leo finibus condimentum ut sit amet quam. Maecenas eget malesuada sem, id ultrices diam. `,
-    },
-  ];
-  
+ 
   return (
     <>
       <div className={style.MainSlider}></div>
