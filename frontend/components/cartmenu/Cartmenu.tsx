@@ -18,21 +18,24 @@ type Anchor = "right";
 
 type propType = {
   isOpen: boolean;
-  toggleDrawer: (open: boolean) => (event: React.KeyboardEvent | React.MouseEvent) => void;
-}
+  toggleDrawer: (
+    open: boolean
+  ) => (event: React.KeyboardEvent | React.MouseEvent) => void;
+};
 
-type product = {
+export type product = {
+  _id: string;
   image: string;
   name: string;
   price: number;
   quantity: number;
 };
 
-const CartMenu = ({isOpen,toggleDrawer}:propType) => {
-
+const CartMenu = ({ isOpen, toggleDrawer }: propType) => {
   const [total, setTotal] = React.useState(0);
   const [cartData, setCartData] = React.useState<product[]>([
     {
+      _id: "",
       image:
         "https://cdn.shopify.com/s/files/1/0052/7551/6995/products/Women_sPage-1_small.gif?v=1656064858",
       name: "The Beauty Bundle July Fab Bag",
@@ -40,6 +43,7 @@ const CartMenu = ({isOpen,toggleDrawer}:propType) => {
       price: 599,
     },
     {
+      _id: "",
       image:
         "https://cdn.shopify.com/s/files/1/0052/7551/6995/products/c2p-pro-epic-matte-lip-ink-set-4_small.jpg?v=1634904385",
       name: "C2P Pro Epic matte lip ink - 04 Lustrous Fuschsia",
@@ -48,12 +52,10 @@ const CartMenu = ({isOpen,toggleDrawer}:propType) => {
     },
   ]);
 
-
-
   React.useEffect(() => {
     const countTotal = () => {
       const t = cartData.reduce((a, el: product) => {
-        a += el.price;
+        a += el.quantity * el.price;
         return a;
       }, 0);
       setTotal(t);
@@ -61,7 +63,6 @@ const CartMenu = ({isOpen,toggleDrawer}:propType) => {
 
     countTotal();
   }, [cartData]);
-
 
   const list = (anchor: Anchor) => (
     <Box sx={{ width: "auto" }} role="presentation">
@@ -106,7 +107,12 @@ const CartMenu = ({isOpen,toggleDrawer}:propType) => {
                         <span className="qty-cart" data-translate="header.qty">
                           Qty: {el.quantity}
                         </span>
-                        <span className="price">Rs. {el.price.toFixed(2)}</span>
+                        <span className="price">
+                          Rs.{" "}
+                          {el.price.toLocaleString(undefined, {
+                            minimumFractionDigits: 2,
+                          })}
+                        </span>
                       </div>
                     </div>
                     <a href="/" title="Remove Item" className="btn-remove">
@@ -124,14 +130,17 @@ const CartMenu = ({isOpen,toggleDrawer}:propType) => {
               <span className="label" data-translate="header.total">
                 Total:
               </span>
-              <span className="price">Rs. {total.toFixed(2)}</span>
+              <span className="price">
+                Rs.{" "}
+                {total.toLocaleString(undefined, { minimumFractionDigits: 2 })}
+              </span>
             </p>
           </div>
           <div className="actions">
             <div className="view-cart">
               <a
                 className="harman_btn4"
-                href="/cart"
+                href="/Cart"
                 data-translate="header.viewcart"
               >
                 View Cart
