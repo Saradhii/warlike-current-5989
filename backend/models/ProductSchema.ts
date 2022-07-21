@@ -4,7 +4,6 @@ export type SchemaType = {
   title: string;
   image: string;
   price: string;
-
 };
 
 const ProductSchema = new mongoose.Schema<SchemaType>({
@@ -13,7 +12,4 @@ const ProductSchema = new mongoose.Schema<SchemaType>({
   price: String,
 });
 
-const Product = mongoose.model("product", ProductSchema);
-
-module.exports = Product;
-
+export const Product = mongoose.model("product", ProductSchema);
