@@ -6,25 +6,25 @@ import Button from "@mui/material/Button";
 import { useState } from "react";
 import MainSlider from "../components/Home/MainSlider";
 import CartMenu from "../components/cartmenu/Cartmenu";
+import Script from "next/script";
 
 const Home: NextPage = () => {
   // For header copy them to header and implement it
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
   const toggleDrawer =
-  (open: boolean) =>
-  (event: React.KeyboardEvent | React.MouseEvent) => {
-    if (
-      event &&
-      event.type === "keydown" &&
-      ((event as React.KeyboardEvent).key === "Tab" ||
-        (event as React.KeyboardEvent).key === "Shift")
-    ) {
-      return;
-    }
+    (open: boolean) => (event: React.KeyboardEvent | React.MouseEvent) => {
+      if (
+        event &&
+        event.type === "keydown" &&
+        ((event as React.KeyboardEvent).key === "Tab" ||
+          (event as React.KeyboardEvent).key === "Shift")
+      ) {
+        return;
+      }
 
-    setIsOpen(open);
-  };
+      setIsOpen(open);
+    };
 
   return (
     <div className={styles.container}>
