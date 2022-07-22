@@ -8,7 +8,7 @@ import axios from "axios";
 
 const CartPage = ({ Data }: any) => {
   const [total, setTotal] = React.useState(0);
-  const [cartData, setCartData] = React.useState<product[]>(Data.data);
+  const [cartData, setCartData] = React.useState<product[]>(Data.data||[]);
   let updateTimer: any;
 
   React.useEffect(() => {
@@ -18,7 +18,7 @@ const CartPage = ({ Data }: any) => {
     const countTotal = () => {
       const t = cartData.reduce((a, el: product) => {
         a += el.quantity * el.price;
-        return a;
+        return a; 
       }, 0);
       setTotal(t);
     };
