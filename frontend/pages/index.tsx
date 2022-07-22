@@ -21,7 +21,7 @@ const Home: NextPage = () => {
       return;
     }
 
-    setIsOpen(open);
+    setIsOpen(open)
   };
 
   return (
