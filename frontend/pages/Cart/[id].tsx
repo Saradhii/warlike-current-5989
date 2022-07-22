@@ -6,15 +6,18 @@ const cart = ({ Data }: any) => {
   return <CartPage Data={Data} />;
 };
 
-export const getServerSideProps = async () => {
+export const getServerSideProps = async (context:any) => {
   const data = await axios
-    .get("http://localhost:8080/cart/getCartData/62d977ac5474e7d0d835e4dc")
+    .get(`http://localhost:8080/cart/getCartData/${"62d977ac5474e7d0d835e4dc" || context.query.id}`)
     .then((res) => {
-      return res.data.data;
+      if (res.data.data !== null) {
+        return res.data.data;
+      } else {
+        return null;
+      }
     })
     .catch((err) => console.log(err));
 
-  console.log("data:", data);
   return { props: { Data: { data } } };
 };
 

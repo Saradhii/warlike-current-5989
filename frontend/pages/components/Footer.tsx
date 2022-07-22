@@ -1,4 +1,4 @@
-    import { NextPage } from "next";
+import { NextPage } from "next";
 import styles from "./footer.module.css";
 import { Facebook, Instagram, Twitter, YouTube } from "@mui/icons-material";
 const Footer: NextPage = () => {
