@@ -1,7 +1,7 @@
 import Link from "next/link";
 import React from "react";
 import { FormDiv } from "./formStyled";
-import InputComp from "./inputComp";
+import InputComp from "./InputComp";
 import NavigateBeforeIcon from "@mui/icons-material/NavigateBefore";
 
 const FormComp = () => {
