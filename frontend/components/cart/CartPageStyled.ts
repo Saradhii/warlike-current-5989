@@ -90,6 +90,15 @@ export const CartPageStyled = styled.main`
               text-align: center;
               padding: 0;
 
+              ::-webkit-outer-spin-button,
+              ::-webkit-inner-spin-button {
+                -webkit-appearance: none;
+                margin: 0;
+              }
+
+              /* Firefox */
+              -moz-appearance: textfield;
+
               :focus {
                 border: 1px #e5b95f solid !important;
                 outline: #e5b95f;
