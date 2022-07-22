@@ -6,7 +6,7 @@ export type SchemaType = {
   email:string;
   hash:string;
   googleID:string;
-  
+  name:string
 };
 
 const UserSchema = new mongoose.Schema<SchemaType>({
@@ -15,6 +15,7 @@ const UserSchema = new mongoose.Schema<SchemaType>({
     email:String,
     hash:String,
     googleID:String,
+    name:String
     // cartProducts:[Schema.Types.ObjectId]
 });
 
