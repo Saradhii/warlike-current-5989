@@ -37,16 +37,16 @@ const Home: NextPage = () => {
           href="https://cdn.shopify.com/s/files/1/0052/7551/6995/files/LOGO_32x32.png?v=1548735766"
         />
       </Head>
-      <Footer />
 
       <main className={styles.main}>
         {/* For header copy them to header and implement it */}
-        <Button onClick={() => setIsOpen(!isOpen)}>{"right"}</Button>
+        <Button onClick={() => setIsOpen(!isOpen)}>{"Cart Menu"}</Button>
         <CartMenu isOpen={isOpen} toggleDrawer={toggleDrawer} />
       </main>
       <div>
         <MainSlider />
       </div>
+      <Footer />
     </div>
   );
 };

@@ -38,7 +38,7 @@ const CartMenu = ({ isOpen, toggleDrawer }: propType) => {
   const [cartData, setCartData] = React.useState<product[]>([]);
 
   React.useEffect(() => {
-    if (cartData || cartData === undefined) {
+    if (cartData === [] || cartData === undefined) {
       return;
     }
 
@@ -59,6 +59,7 @@ const CartMenu = ({ isOpen, toggleDrawer }: propType) => {
         `http://localhost:8080/cart/getCartData/${"62d977ac547497a0d835e4db"}`
       )
       .then((res) => {
+        console.log("res:", res);
         setCartData(res.data.data);
       })
       .catch((err) => console.log(err));
