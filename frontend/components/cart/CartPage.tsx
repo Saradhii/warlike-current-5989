@@ -12,7 +12,7 @@ const CartPage = ({ Data }: any) => {
   let updateTimer: any;
 
   React.useEffect(() => {
-    if (cartData || cartData===undefined) {
+    if (cartData || cartData === undefined) {
       return;
     }
     const countTotal = () => {
