@@ -54,6 +54,18 @@ const CartPage = ({ Data }: any) => {
     }, 1000);
   };
 
+  const handleDelete = (id) => {
+    axios
+      .delete(
+        `http://localhost:8080/cart/deleteProduct/${id}`
+      )
+      .then((res) => {
+        console.log(res)
+      })
+      .catch((err) => console.log(err));
+  }
+
+
   return (
     <CartPageStyled>
       <div className="cartDiv">
@@ -125,7 +137,7 @@ const CartPage = ({ Data }: any) => {
                           className="remove-cart"
                           href="/cart/change?line=1&amp;quantity=0"
                         >
-                          <CloseIcon />
+                          <CloseIcon onClick={() =>  handleDelete(item._id)}/>
                         </a>
                       </td>
                     </tr>

@@ -60,10 +60,24 @@ const CartMenu = ({ isOpen, toggleDrawer }: propType) => {
       )
       .then((res) => {
         console.log("res:", res);
-        setCartData(res.data.data);
+        if(res.data.data){
+          setCartData(res.data.data);
+        }
       })
       .catch((err) => console.log(err));
   }, []);
+
+
+  const handleDelete = (id) => {
+    axios
+      .delete(
+        `http://localhost:8080/cart/deleteProduct/${id}`
+      )
+      .then((res) => {
+        console.log(res)
+      })
+      .catch((err) => console.log(err));
+  }
 
   const list = (anchor: Anchor) => (
     <Box sx={{ width: "auto" }} role="presentation">
@@ -79,7 +93,8 @@ const CartMenu = ({ isOpen, toggleDrawer }: propType) => {
         </div>
 
         <List className="cart-list">
-          {cartData &&
+          
+          {cartData.length===0 ? "You have no items in your shopping cart." :
             cartData.map((el: product, i: number) => {
               return (
                 <React.Fragment key={i}>
@@ -117,7 +132,7 @@ const CartMenu = ({ isOpen, toggleDrawer }: propType) => {
                       </div>
                     </div>
                     <a href="/" title="Remove Item" className="btn-remove">
-                      <CloseIcon />
+                      <CloseIcon onClick={() =>  handleDelete(el._id)}/>
                     </a>
                   </li>
                 </React.Fragment>
@@ -125,6 +140,7 @@ const CartMenu = ({ isOpen, toggleDrawer }: propType) => {
             })}
         </List>
 
+       {cartData.length===0 ? null : 
         <div className="wrap-btcart">
           <div className="summary">
             <p className="total">
@@ -154,7 +170,7 @@ const CartMenu = ({ isOpen, toggleDrawer }: propType) => {
               Checkout
             </button>
           </div>
-        </div>
+        </div>}
       </CartMenuStyled>
     </Box>
   );
