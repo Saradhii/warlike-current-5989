@@ -8,11 +8,11 @@ import axios from "axios";
 
 const CartPage = ({ Data }: any) => {
   const [total, setTotal] = React.useState(0);
-  const [cartData, setCartData] = React.useState<product[]>(Data.data);
+  const [cartData, setCartData] = React.useState<product[]>(Data.data || []);
   let updateTimer: any;
 
   React.useEffect(() => {
-    if (cartData || cartData === undefined) {
+    if (cartData === [] || cartData === undefined) {
       return;
     }
     const countTotal = () => {
@@ -52,6 +52,15 @@ const CartPage = ({ Data }: any) => {
         })
         .catch((err) => console.log(err));
     }, 1000);
+  };
+
+  const handleDelete = (id) => {
+    axios
+      .delete(`http://localhost:8080/cart/deleteProduct/${id}`)
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => console.log(err));
   };
 
   return (
@@ -125,7 +134,7 @@ const CartPage = ({ Data }: any) => {
                           className="remove-cart"
                           href="/cart/change?line=1&amp;quantity=0"
                         >
-                          <CloseIcon />
+                          <CloseIcon onClick={() => handleDelete(item._id)} />
                         </a>
                       </td>
                     </tr>

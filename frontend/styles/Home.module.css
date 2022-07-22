@@ -1,3 +1,39 @@
+.main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer {
+  display: flex;
+  flex: 1;
+  padding: 2rem 0;
+  border-top: 1px solid #eaeaea;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+}
+
+.title a {
+  color: #0070f3;
+  text-decoration: none;
+}
+
+.title a:hover,
+.title a:focus,
+.title a:active {
+  text-decoration: underline;
+}
+
+.title,
 .MainSlider {
   background-image: url("https://cdn.shopify.com/s/files/1/0052/7551/6995/files/Homepage-Banner-bAG-Reveal-Recovered-2_2048x.gif?v=1656613045");
   width: 100%;
@@ -42,7 +78,7 @@
   gap: 10px;
 }
 
-.beauty>div {
+.beauty > div {
   width: 340px;
   padding: 0px 10px 0px 10px;
   text-align: center;
@@ -76,11 +112,11 @@
   font-family: poppins;
 }
 
-.subscription>div {
+.subscription > div {
   width: 50%;
 }
 
-.subscription>div>div {
+.subscription > div > div {
   border: 1px solid #dfe4e6;
   padding: 17px;
   text-align: center;
@@ -97,19 +133,19 @@
   margin-top: -19px;
 }
 
-.subscription>div>div:nth-child(3) {
+.subscription > div > div:nth-child(3) {
   padding-bottom: 200px;
 }
 
-.subscription>div>div:nth-child(3) p {
+.subscription > div > div:nth-child(3) p {
   margin-top: 20px;
 }
 
-.subscription>div>div:nth-child(3) h4 {
+.subscription > div > div:nth-child(3) h4 {
   margin-top: -11px;
 }
 
-.subscription>div>div:last-child {
+.subscription > div > div:last-child {
   width: 100%;
   background-color: #e5b95f;
   border: 1px solid #ffffff;
@@ -140,8 +176,7 @@
   width: 75%;
 }
 
-.prev>div {
-
+.prev > div {
   height: 250px;
   cursor: pointer;
 }
@@ -181,7 +216,7 @@
   text-align: center;
 }
 
-.trend>div {
+.trend > div {
   display: flex;
   width: 100%;
   left: 0%;
@@ -206,7 +241,7 @@
   padding: 30px 0px;
 }
 
-.slido>div {
+.slido > div {
   width: 75%;
   margin: auto;
 }
@@ -236,11 +271,10 @@
 }
 
 .test .quote {
-
   margin: 20px auto;
 }
 
-@media all and (min-width:391px) and (max-width:781px) {
+@media all and (min-width: 391px) and (max-width: 781px) {
   .h3 {
     width: 80%;
   }
@@ -259,7 +293,7 @@
   }
 }
 
-@media all and (min-width:51px) and (max-width:391px) {
+@media all and (min-width: 51px) and (max-width: 391px) {
   .MainSlider {
     background-size: auto;
     background-position: 45% top;
@@ -275,7 +309,7 @@
     margin: auto;
   }
 
-  .subscription>div {
+  .subscription > div {
     width: 90%;
   }
 

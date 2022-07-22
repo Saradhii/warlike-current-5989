@@ -38,7 +38,7 @@ const CartMenu = ({ isOpen, toggleDrawer }: propType) => {
   const [cartData, setCartData] = React.useState<product[]>([]);
 
   React.useEffect(() => {
-    if (cartData || cartData === undefined) {
+    if (cartData === [] || cartData === undefined) {
       return;
     }
 
@@ -56,13 +56,28 @@ const CartMenu = ({ isOpen, toggleDrawer }: propType) => {
   React.useEffect(() => {
     axios
       .get(
-        `http://localhost:8080/cart/getCartData/${"62d977ac547497a0d835e4db"}`
+        `http://localhost:8080/cart/getCartData/${"62d977ac5474e7d0d835e4dc"}`
       )
       .then((res) => {
-        setCartData(res.data.data);
+        console.log("res:", res);
+        if(res.data.data){
+          setCartData(res.data.data);
+        }
       })
       .catch((err) => console.log(err));
   }, []);
+
+
+  const handleDelete = (id) => {
+    axios
+      .delete(
+        `http://localhost:8080/cart/deleteProduct/${id}`
+      )
+      .then((res) => {
+        console.log(res)
+      })
+      .catch((err) => console.log(err));
+  }
 
   const list = (anchor: Anchor) => (
     <Box sx={{ width: "auto" }} role="presentation">
@@ -78,7 +93,8 @@ const CartMenu = ({ isOpen, toggleDrawer }: propType) => {
         </div>
 
         <List className="cart-list">
-          {cartData &&
+          
+          {cartData.length===0 ? "You have no items in your shopping cart." :
             cartData.map((el: product, i: number) => {
               return (
                 <React.Fragment key={i}>
@@ -116,7 +132,7 @@ const CartMenu = ({ isOpen, toggleDrawer }: propType) => {
                       </div>
                     </div>
                     <a href="/" title="Remove Item" className="btn-remove">
-                      <CloseIcon />
+                      <CloseIcon onClick={() =>  handleDelete(el._id)}/>
                     </a>
                   </li>
                 </React.Fragment>
@@ -124,6 +140,7 @@ const CartMenu = ({ isOpen, toggleDrawer }: propType) => {
             })}
         </List>
 
+       {cartData.length===0 ? null : 
         <div className="wrap-btcart">
           <div className="summary">
             <p className="total">
@@ -140,7 +157,7 @@ const CartMenu = ({ isOpen, toggleDrawer }: propType) => {
             <div className="view-cart">
               <a
                 className="harman_btn4"
-                href="/Cart"
+                href={`/Cart/{id}`}
                 data-translate="header.viewcart"
               >
                 View Cart
@@ -153,7 +170,7 @@ const CartMenu = ({ isOpen, toggleDrawer }: propType) => {
               Checkout
             </button>
           </div>
-        </div>
+        </div>}
       </CartMenuStyled>
     </Box>
   );

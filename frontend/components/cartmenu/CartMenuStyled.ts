@@ -46,6 +46,7 @@ export const CartMenuStyled = styled.div`
     padding: 15px;
     height: fit-content;
     min-height: 82vh;
+    
 
     > .item {
       list-style: none;
