@@ -38,6 +38,10 @@ const CartMenu = ({ isOpen, toggleDrawer }: propType) => {
   const [cartData, setCartData] = React.useState<product[]>([]);
 
   React.useEffect(() => {
+    if (cartData || cartData === undefined) {
+      return;
+    }
+
     const countTotal = () => {
       const t = cartData.reduce((a, el: product) => {
         a += el.quantity * el.price;
