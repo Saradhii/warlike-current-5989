@@ -50,7 +50,8 @@ const Home: NextPage = () => {
       </div>
       <Footer />
     </div>
-    </div>
+    
+    
   );
 };
 
