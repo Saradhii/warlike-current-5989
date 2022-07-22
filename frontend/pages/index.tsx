@@ -8,6 +8,7 @@ import { useState } from "react";
 import MainSlider from "../components/Home/MainSlider";
 import CartMenu from "../components/cartmenu/Cartmenu";
 import Script from "next/script";
+import jwt_decode from "jwt-decode";
 
 const Home: NextPage = () => {
   // For header copy them to header and implement it
@@ -38,6 +39,7 @@ const Home: NextPage = () => {
         />
       </Head>
 
+    
       <main className={styles.main}>
         {/* For header copy them to header and implement it */}
         <Button onClick={() => setIsOpen(!isOpen)}>{"Cart Menu"}</Button>
@@ -47,6 +49,7 @@ const Home: NextPage = () => {
         <MainSlider />
       </div>
       <Footer />
+    </div>
     </div>
   );
 };
