@@ -56,10 +56,9 @@ const CartMenu = ({ isOpen, toggleDrawer }: propType) => {
   React.useEffect(() => {
     axios
       .get(
-        `http://localhost:8080/cart/getCartData/${"62d977ac5474e7d0d835e4dc"}`
+        `http://localhost:8080/cart/getCartData/${"62d977ac547498a0d835e4dc"}`
       )
       .then((res) => {
-        console.log("res:", res);
         if (res.data.data) {
           setCartData(res.data.data);
         }

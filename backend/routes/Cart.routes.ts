@@ -45,18 +45,17 @@ cartRoute.post("/addItem", async (req: Request, res: Response) => {
     .send({ message: "Product Added to the cart successfully.", error: false });
 });
 
-cartRoute.delete("/deleteProduct/:id",async (req: Request, res: Response) => {
-  if(req.params.id){
-    const data = await Cart.deleteOne({_id: req.params.id})
+cartRoute.delete("/deleteProduct/:id", async (req: Request, res: Response) => {
+  if (req.params.id) {
+    const data = await Cart.deleteOne({ _id: req.params.id });
 
-    return res.status(200).send({message: "Product Deleted Succsessfully"});
+    return res.status(200).send({ message: "Product Deleted Succsessfully" });
   }
 
   return res
     .status(200)
     .send({ message: "Something went wrong!", error: false });
-  
-})
+});
 
 cartRoute.patch("/updateCart", async (req: Request, res: Response) => {
   if (req.body === "" && req.body === "undefined" && req.body === "true") {
