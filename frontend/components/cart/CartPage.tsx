@@ -8,7 +8,7 @@ import axios from "axios";
 
 const CartPage = ({ Data }: any) => {
   const [total, setTotal] = React.useState(0);
-  const [cartData, setCartData] = React.useState<product[]>(Data.data||[]);
+  const [cartData, setCartData] = React.useState<product[]>(Data.data || []);
   let updateTimer: any;
 
   React.useEffect(() => {
@@ -18,7 +18,7 @@ const CartPage = ({ Data }: any) => {
     const countTotal = () => {
       const t = cartData.reduce((a, el: product) => {
         a += el.quantity * el.price;
-        return a; 
+        return a;
       }, 0);
       setTotal(t);
     };
@@ -56,15 +56,12 @@ const CartPage = ({ Data }: any) => {
 
   const handleDelete = (id) => {
     axios
-      .delete(
-        `http://localhost:8080/cart/deleteProduct/${id}`
-      )
+      .delete(`http://localhost:8080/cart/deleteProduct/${id}`)
       .then((res) => {
-        console.log(res)
+        console.log(res);
       })
       .catch((err) => console.log(err));
-  }
-
+  };
 
   return (
     <CartPageStyled>
@@ -137,7 +134,7 @@ const CartPage = ({ Data }: any) => {
                           className="remove-cart"
                           href="/cart/change?line=1&amp;quantity=0"
                         >
-                          <CloseIcon onClick={() =>  handleDelete(item._id)}/>
+                          <CloseIcon onClick={() => handleDelete(item._id)} />
                         </a>
                       </td>
                     </tr>
