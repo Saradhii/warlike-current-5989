@@ -15,11 +15,27 @@ export const InformationPageDiv = styled.div`
 
     > .main {
       padding-top: 4em;
-      width: 52%;
+      flex: 1;
       float: left;
       display: flex;
       flex-direction: column;
       justify-content: center;
+      padding-right: 6%;
+    }
+
+    > .sidebar {
+      padding-top: 4em;
+      border: 2px solid #f7f7f7;
+      border-radius: 5px;
+      padding: 52px;
+      background-color: #f7f7f7;
+      margin-top: 28px;
+      flex: 0.6;
+      padding-left: 4%;
+      background-position: left top;
+      float: right;
+      position: relative;
+      color: #535353;
     }
   }
 `;
@@ -56,85 +72,6 @@ export const FormDiv = styled.div`
     > .section__content {
       display: inline-block;
       width: 100%;
-
-      /* >.fieldset {
-        margin: -0.4285714286em;
-        zoom: 1;
-
-        > .field {
-          width: 100%;
-          float: left;
-          padding: 0.4285714286em;
-          box-sizing: border-box;
-
-          > .field__input-wrapper {
-            position: relative;
-
-            > label {
-              color: #737373;
-              font-size: 0.7571428571em;
-              font-weight: normal;
-              position: absolute;
-              top: 0;
-              width: 100%;
-              margin-top: 0.4285714286em;
-              margin-left: 1px;
-              padding: 0 0.9166666667em;
-              z-index: 1;
-              user-select: none;
-              transform: translateY(3px);
-              pointer-events: none;
-              overflow: hidden;
-              white-space: nowrap;
-              text-overflow: ellipsis;
-              box-sizing: border-box;
-              opacity: 0;
-              transition: all 0.2s ease-out;
-              margin: 0.5em 0;
-              display: block;
-            }
-
-            > input {
-              background-color: white;
-              color: #333333;
-              border-color: #d9d9d9;
-              border: 1px transparent solid;
-              background-clip: padding-box;
-              border-radius: 5px;
-              display: block;
-              box-sizing: border-box;
-              width: 100%;
-              padding: 0.9285714286em 0.7857142857em;
-              word-break: normal;
-              line-height: inherit;
-              transition: all 0.2s ease-out;
-              background-color: white;
-              color: #333333;
-              border-color: #d9d9d9;
-
-              :focus {
-                outline: none;
-                border-color: #2d2d2d;
-                box-shadow: 0 0 0 1px #2d2d2d;
-                padding-top: 1.5em;
-                padding-bottom: 0.3571428571em;
-                outline: none;
-                border-color: #2d2d2d;
-                box-shadow: 0 0 0 1px #2d2d2d;
-
-                ::placeholder {
-                  visibility: hidden;
-                }
-
-                ~ label {
-                  transform: none;
-                  opacity: 1;
-                }
-              }
-            }
-          }
-        }
-      } */
 
       > .fieldset-description {
         margin-top: 0.9285714286em;
@@ -345,7 +282,148 @@ export const FormDiv = styled.div`
   }
 `;
 
-export const PromoDiv = styled.div``;
+export const PromoDiv = styled.div`
+  > .discountInput {
+    display: flex;
+    padding-top: 1.5em;
+    padding-bottom: 1.5em;
+    border-top: 1px solid rgba(175, 175, 175, 0.34);
+
+    > div {
+      flex-grow: 1;
+    }
+
+    > button {
+      cursor: default;
+      background: #c8c8c8;
+      -webkit-box-shadow: none;
+      box-shadow: none;
+      width: auto;
+      margin-left: 0.8571428571em;
+      white-space: nowrap;
+      padding-top: 0;
+      padding-bottom: 0;
+
+      cursor: pointer;
+      display: inline-block;
+      background-color: #000000;
+      background-clip: border-box;
+      box-sizing: border-box;
+      border: 1px transparent solid;
+      border-radius: 5px;
+      color: white;
+      font-weight: 500;
+      padding: 0.4em 1.7em;
+      text-align: center;
+      position: relative;
+      transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out,
+        -webkit-box-shadow 0.2s ease-in-out;
+      transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out,
+        box-shadow 0.2s ease-in-out;
+      transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out,
+        box-shadow 0.2s ease-in-out, -webkit-box-shadow 0.2s ease-in-out;
+    }
+  }
+
+  > div > ul > .item {
+    display: flex;
+    font-size: 14px;
+    align-items: center;
+    gap: 0.3em;
+    justify-content: space-between;
+    margin-bottom: 10px;
+
+    > a {
+      > .product-thumbnail {
+        width: 4.6em;
+        height: 4.6em;
+        border-radius: 8px;
+        background: #fff;
+        position: relative;
+
+        > .product-thumbnail__wrapper {
+          width: 100%;
+          height: 100%;
+          position: relative;
+          overflow: hidden;
+          border-radius: 8px;
+          z-index: 1;
+
+          > span {
+            position: unset;
+          }
+
+          > span > img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            max-width: 100%;
+            max-height: 100%;
+            margin: auto;
+            width: 100%;
+            height: 100%;
+          }
+        }
+        > .product-thumbnail__quantity {
+          font-size: 0.8571428571em;
+          font-weight: 500;
+          line-height: 1.75em;
+          white-space: nowrap;
+          text-align: center;
+          border-radius: 1.75em;
+          background-color: rgba(114, 114, 114, 0.9);
+          color: #fff;
+          -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+          min-width: 1.75em;
+          height: 1.75em;
+          padding: 0 0.5833333333em;
+          position: absolute;
+          right: -0.75em;
+          top: -0.75em;
+          z-index: 3;
+        }
+      }
+    }
+  }
+
+  > .order-summary {
+    border-top: 1px solid rgba(175, 175, 175, 0.34);
+    padding-top: 1.5em;
+    padding-bottom: 1.5em;
+    flex: 0 0 auto;
+
+    > .summary {
+      > p {
+        display: flex;
+        justify-content: space-between;
+        font-size: 0.8em;
+        color: #323232;
+      }
+    }
+
+    > .total {
+      border-top: 1px solid rgba(175, 175, 175, 0.34);
+      > p {
+        display: flex;
+        justify-content: space-between;
+
+        > span > .currency {
+          font-size: 14px;
+        }
+
+        > span:nth-child(2) {
+          font-size:1.342857143em;
+          font-weight: 500;
+          letter-spacing: -0.04em;
+          line-height: 1em;
+        }
+      }
+    }
+  }
+`;
 
 export const Fieldset = styled.div`
   margin: -0.4285714286em;

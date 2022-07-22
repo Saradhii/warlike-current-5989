@@ -3,6 +3,7 @@ import React from "react";
 import FormComp from "./FormComp";
 import { InformationPageDiv, FormDiv } from "./formStyled";
 import InfoHeader from "./InfoHeader";
+import Promo from "./Promo";
 
 const InformationPage = () => {
   return (
@@ -13,7 +14,9 @@ const InformationPage = () => {
           <FormComp />
         </div>
 
-        <div className="sidebar"></div>
+        <div className="sidebar">
+          <Promo />
+        </div>
       </div>
     </InformationPageDiv>
   );
