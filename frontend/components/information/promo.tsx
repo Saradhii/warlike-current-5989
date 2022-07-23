@@ -11,9 +11,10 @@ const Promo = () => {
   const [cartData, setCartData] = React.useState<product[]>([]);
 
   useEffect(() => {
+    const id = window.localStorge.userid || "";
     axios
       .get(
-        `http://localhost:8080/cart/getCartData/${"62d977ac547498a0d835e4dc"}`
+        `http://localhost:8080/cart/getCartData/${id}`
       )
       .then((res) => {
         if (res.data.data) {

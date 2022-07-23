@@ -56,7 +56,7 @@ const CartMenu = ({ isOpen, toggleDrawer }: propType) => {
   React.useEffect(() => {
     axios
       .get(
-        `http://localhost:8080/cart/getCartData/${"62d977ac547498a0d835e4dc"}`
+        `http://localhost:8080/cart/getCartData/${"62db995db33c82567cdaddca"}`
       )
       .then((res) => {
         if (res.data.data) {
@@ -158,7 +158,7 @@ const CartMenu = ({ isOpen, toggleDrawer }: propType) => {
               <div className="view-cart">
                 <a
                   className="harman_btn4"
-                  href={`/Cart/{id}`}
+                  href={`/Cart/${"62db995db33c82567cdaddca"}`}
                   data-translate="header.viewcart"
                 >
                   View Cart

@@ -1,4 +1,4 @@
-const User = require("../models/UserSchema");
+const User = require("../models/User");
 import express from "express";
 import { Router } from "express";
 const crypto = require("node:crypto");
@@ -10,8 +10,10 @@ const UserRoute = Router();
 
 UserRoute.post("/signup",async (req: express.Request, res: express.Response) => {
     const {first_name,last_name,email,password}=req.body;
+    console.log(req.body)
     const hash = crypto.pbkdf2Sync(password,"SECRETSALT",60,64,"sha256").toString("hex");
     const user = new User({first_name,last_name,email,hash});
+
     user.save().then(()=>{
         res.send({message:"User created successfully"});
     });

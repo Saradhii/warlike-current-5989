@@ -12,10 +12,6 @@ import jwt_decode from "jwt-decode";
 import Header from '../components/header/Header'
 
 const Home: NextPage = () => {
-  // For header copy them to header and implement it
-  
-
-  
 
   return (
     <div className={styles.container}>
@@ -30,10 +26,7 @@ const Home: NextPage = () => {
 
     
       <main className={styles.main}>
-        {/* For header copy them to header and implement it */}
         <Header/>
-       
-       
       </main>
       <div>
         <MainSlider />
