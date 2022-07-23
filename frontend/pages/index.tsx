@@ -1,18 +1,11 @@
 import type { NextPage } from "next";
 import Head from "next/head";
-import Image from "next/image";
 import styles from "../styles/Home.module.css";
 import Footer from "./components/Footer";
-import Button from "@mui/material/Button";
-import { useState } from "react";
 import MainSlider from "../components/Home/MainSlider";
-
-import Script from "next/script";
-import jwt_decode from "jwt-decode";
-import Header from '../components/header/Header'
+import Header from "../components/header/Header";
 
 const Home: NextPage = () => {
-
   return (
     <div className={styles.container}>
       <Head>
@@ -24,17 +17,14 @@ const Home: NextPage = () => {
         />
       </Head>
 
-    
       <main className={styles.main}>
-        <Header/>
+        <Header />
       </main>
       <div>
         <MainSlider />
       </div>
       <Footer />
     </div>
-    
-    
   );
 };
 
