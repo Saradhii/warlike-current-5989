@@ -4,6 +4,7 @@ import { FormDiv } from "./formStyled";
 import InputComp from "./InputComp";
 import NavigateBeforeIcon from "@mui/icons-material/NavigateBefore";
 import axios from "axios";
+import { useRouter } from 'next/router'
 
 type addressTypes = {
   email: string;
@@ -20,6 +21,7 @@ type addressTypes = {
 };
 
 const FormComp = () => {
+  const router = useRouter()
   const [userAddress, setUserAddress] = useState({});
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -29,7 +31,9 @@ const FormComp = () => {
   const handleClick = async () => {
     axios
       .post("http://localhost:8080/AddUserAddress")
-      .then((res) => console.log(res))
+      .then((res) => {
+        router.push("/payment")
+      })
       .catch((res) => console.log(res));
   };
 
