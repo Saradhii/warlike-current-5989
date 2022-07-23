@@ -56,14 +56,24 @@ const CartMenu = ({ isOpen, toggleDrawer }: propType) => {
   React.useEffect(() => {
     axios
       .get(
-        `http://localhost:8080/cart/getCartData/${"62d977ac5474e7d0d835e4dc"}`
+        `http://localhost:8080/cart/getCartData/${"62d977ac547498a0d835e4dc"}`
       )
       .then((res) => {
-        console.log("res:", res);
-        setCartData(res.data.data);
+        if (res.data.data) {
+          setCartData(res.data.data);
+        }
       })
       .catch((err) => console.log(err));
   }, []);
+
+  const handleDelete = (id: string) => {
+    axios
+      .delete(`http://localhost:8080/cart/deleteProduct/${id}`)
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => console.log(err));
+  };
 
   const list = (anchor: Anchor) => (
     <Box sx={{ width: "auto" }} role="presentation">
@@ -79,82 +89,90 @@ const CartMenu = ({ isOpen, toggleDrawer }: propType) => {
         </div>
 
         <List className="cart-list">
-          {cartData &&
-            cartData.map((el: product, i: number) => {
-              return (
-                <React.Fragment key={i}>
-                  {i !== 0 && <Divider sx={{ margin: "24px 0px" }} />}
-                  <li className="item" id="cart-item">
-                    <a
-                      href="/"
-                      title="The Beauty Bundle July Fab Bag"
-                      className="product-image"
-                    >
-                      <Image
-                        width={96}
-                        height={96}
-                        src={el.image}
-                        alt="The Beauty Bundle July Fab Bag"
-                      />
-                    </a>
-                    <div className="product-inner">
-                      <p className="product-name">
-                        <a href="/">
-                          <span className="lang1">{el.name}</span>
-                        </a>
-                      </p>
-                      <div className="option"></div>
-                      <div className="cart-collateral">
-                        <span className="qty-cart" data-translate="header.qty">
-                          Qty: {el.quantity}
-                        </span>
-                        <span className="price">
-                          Rs.{" "}
-                          {el.price.toLocaleString(undefined, {
-                            minimumFractionDigits: 2,
-                          })}
-                        </span>
+          {cartData.length === 0
+            ? "You have no items in your shopping cart."
+            : cartData.map((el: product, i: number) => {
+                return (
+                  <React.Fragment key={i}>
+                    {i !== 0 && <Divider sx={{ margin: "24px 0px" }} />}
+                    <li className="item" id="cart-item">
+                      <a
+                        href="/"
+                        title="The Beauty Bundle July Fab Bag"
+                        className="product-image"
+                      >
+                        <Image
+                          width={96}
+                          height={96}
+                          src={el.image}
+                          alt="The Beauty Bundle July Fab Bag"
+                        />
+                      </a>
+                      <div className="product-inner">
+                        <p className="product-name">
+                          <a href="/">
+                            <span className="lang1">{el.name}</span>
+                          </a>
+                        </p>
+                        <div className="option"></div>
+                        <div className="cart-collateral">
+                          <span
+                            className="qty-cart"
+                            data-translate="header.qty"
+                          >
+                            Qty: {el.quantity}
+                          </span>
+                          <span className="price">
+                            Rs.{" "}
+                            {el.price.toLocaleString(undefined, {
+                              minimumFractionDigits: 2,
+                            })}
+                          </span>
+                        </div>
                       </div>
-                    </div>
-                    <a href="/" title="Remove Item" className="btn-remove">
-                      <CloseIcon />
-                    </a>
-                  </li>
-                </React.Fragment>
-              );
-            })}
+                      <a href="/" title="Remove Item" className="btn-remove">
+                        <CloseIcon onClick={() => handleDelete(el._id)} />
+                      </a>
+                    </li>
+                  </React.Fragment>
+                );
+              })}
         </List>
 
-        <div className="wrap-btcart">
-          <div className="summary">
-            <p className="total">
-              <span className="label" data-translate="header.total">
-                Total:
-              </span>
-              <span className="price">
-                Rs.{" "}
-                {total.toLocaleString(undefined, { minimumFractionDigits: 2 })}
-              </span>
-            </p>
-          </div>
-          <div className="actions">
-            <div className="view-cart">
-              <a
-                className="harman_btn4"
-                href={`/Cart/{id}`}
-                data-translate="header.viewcart"
-              >
-                View Cart
-              </a>
+        {cartData.length === 0 ? null : (
+          <div className="wrap-btcart">
+            <div className="summary">
+              <p className="total">
+                <span className="label" data-translate="header.total">
+                  Total:
+                </span>
+                <span className="price">
+                  Rs.{" "}
+                  {total.toLocaleString(undefined, {
+                    minimumFractionDigits: 2,
+                  })}
+                </span>
+              </p>
             </div>
-            <button
-              className="btn harman_btn4"
-              data-translate="header.checkout"
-            >
-              Checkout
-            </button>
+            <div className="actions">
+              <div className="view-cart">
+                <a
+                  className="harman_btn4"
+                  href={`/Cart/{id}`}
+                  data-translate="header.viewcart"
+                >
+                  View Cart
+                </a>
+              </div>
+              <button
+                className="btn harman_btn4"
+                data-translate="header.checkout"
+              >
+                Checkout
+              </button>
+            </div>
           </div>
-        </div>
+        )}
       </CartMenuStyled>
     </Box>
   );

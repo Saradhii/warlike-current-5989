@@ -1,5 +1,6 @@
 import { Request, Response, Router } from "express";
 import { Cart } from "../models/CartItemSchema";
+import { User } from "../models/User"
 
 const cartRoute = Router();
 
@@ -45,6 +46,18 @@ cartRoute.post("/addItem", async (req: Request, res: Response) => {
     .send({ message: "Product Added to the cart successfully.", error: false });
 });
 
+cartRoute.delete("/deleteProduct/:id", async (req: Request, res: Response) => {
+  if (req.params.id) {
+    const data = await Cart.deleteOne({ _id: req.params.id });
+
+    return res.status(200).send({ message: "Product Deleted Succsessfully" });
+  }
+
+  return res
+    .status(200)
+    .send({ message: "Something went wrong!", error: false });
+});
+
 cartRoute.patch("/updateCart", async (req: Request, res: Response) => {
   if (req.body === "" && req.body === "undefined" && req.body === "true") {
     return res
@@ -65,5 +78,23 @@ cartRoute.patch("/updateCart", async (req: Request, res: Response) => {
     data: cartData,
   });
 });
+
+cartRoute.post("/addUserAdress", async (req: Request, res: Response) => {
+  if(req.body==="undefined" || req.body===undefined || req.body==={}){
+    return res
+    .status(200)
+    .send({ message: "Something went wrong!", error: false });
+  }
+
+
+  const userData = User.updateOne({email: req.body.email}, {$set: req.body});
+
+  return res.status(200).send({
+    message: "User data updated successfully",
+    error: false,
+  });
+  
+
+})
 
 export default cartRoute;
