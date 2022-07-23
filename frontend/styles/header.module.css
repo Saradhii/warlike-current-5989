@@ -149,3 +149,21 @@ background: white;
 .afterDropDown *{
   color: black;
 }
+.mainAccount{
+  width: 100%;
+  padding: 10% 10% 0% 10%;
+  font-weight: light;
+color: rgb(66, 65, 65);  
+}
+.mainAccount hr{
+  margin-top: 30px;
+  border: none;
+  background-color: white;
+  border-bottom : 0.5px black solid ;
+
+}
+.mainAccount a{
+  color: rgb(73, 73, 201);
+  margin-left: 20px;
+  border-bottom: 1px solid rgb(73, 73, 201);
+}
