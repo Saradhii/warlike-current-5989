@@ -123,6 +123,7 @@ cursor: pointer;
   right: 80px;
 cursor: pointer;
 padding: 10px;
+background: white;
 }
 .beforeDropDown{
   display: none;

@@ -4,10 +4,26 @@ import Link from "next/link";
 import { AiOutlineHeart, AiOutlineShoppingCart } from "react-icons/ai";
 import { FaRegUserCircle } from "react-icons/fa";
 import Drawer from "./Drawer";
-
+import CartMenu from "../cartmenu/Cartmenu";
 export default function Header() {
+
+  const toggleDrawer =
+  (open: boolean) => (event: React.KeyboardEvent | React.MouseEvent) => {
+    if (
+      event &&
+      event.type === "keydown" &&
+      ((event as React.KeyboardEvent).key === "Tab" ||
+        (event as React.KeyboardEvent).key === "Shift")
+    ) {
+      return;
+    }
+
+    setIsOpen(open);
+  };
+
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [hover, setHover] = useState(false);
+  const [isOpen, setIsOpen] = useState<boolean>(false);
   return (
     <div className={styles.mainContainer}>
       <div>
@@ -64,10 +80,11 @@ export default function Header() {
          
         </span>
 
-        <span>
+        <span onClick={() => setIsOpen(!isOpen)}>
           <AiOutlineShoppingCart />
         </span>
         <div className={styles.cartIteamsShow}>{0}</div>
+        <CartMenu isOpen={isOpen} toggleDrawer={toggleDrawer} />
       </div>
     </div>
   );
