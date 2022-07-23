@@ -9,7 +9,7 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import CreditCardIcon from "@mui/icons-material/CreditCard";
 import axios from "axios";
 import Link from "next/link";
-import Promo from "../../components/information/Promo";
+import Promo from "../../components/information/promo";
 
 type User = {
   first_name: string;
