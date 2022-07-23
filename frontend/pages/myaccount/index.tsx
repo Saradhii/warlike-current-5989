@@ -15,7 +15,7 @@ export default function Account() {
 <hr />
 <p>ORDER HISTORY</p>
 <br />
-<ul>You haven't placed any orders yet.</ul>
+<ul>You haven&#39;t placed any orders yet.</ul>
 <div>
   <p>ACCOUNT DETAILS</p>
   <hr />

@@ -91,7 +91,6 @@ export default function SwipeableTemporaryDrawer() {
             </div>
           )}
 
-          {}
         </div>
       </List>
     </Box>

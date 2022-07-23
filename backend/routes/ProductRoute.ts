@@ -41,22 +41,23 @@ ProductRoute.get(
 ProductRoute.post(
   "/addToCart",
   async (req: express.Request, res: express.Response) => {
-    const token = req.headers.authentication;
-    if (!token) {
-      return res.send("forbiden");
-    }
-    try {
-      const decoded = jwt.verify(token, "SECRET1234");
-      console.log("Decode",decoded);
-      if (decoded) {
+    // const token = req.headers.authentication;
+    // if (!token) {
+    //   return res.send("forbiden");
+    // }
+    // try {
+      // const decoded = jwt.verify(token, "SECRET1234");
+      // console.log("Decode",decoded);
+      // if (decoded) {
+        console.log(req.body)
         const cart = new Cart(req.body);
         cart.save();
         res.status(200).send({ message: "Product Added successfully" });
-      }
-    } catch (e: any) {
-      console.log("err", e.message);
-      return res.status(403).send("Forbiden");
-    }
+      // }
+  //   } catch (e: any) {
+  //     console.log("err", e.message);
+  //     return res.status(403).send("Forbiden");
+  //   }
   }
 );
 

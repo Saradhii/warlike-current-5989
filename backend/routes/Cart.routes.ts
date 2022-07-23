@@ -5,29 +5,35 @@ import { User } from "../models/User"
 const cartRoute = Router();
 
 cartRoute.get("/getCartData/:id", async (req: Request, res: Response) => {
-  if (
-    req.params.id === null ||
-    req.params.id === "" ||
-    req.query.id === "undefined"
-  ) {
+
+
+    console.log(req.params.id, req.params.id.length)
+    if (
+      req.params.id === null ||
+      req.params.id === "" ||
+      req.query.id === 'undefined'
+    ) {
+      return res
+        .status(404)
+        .send({ message: "User id not provided", error: true, data: [] });
+    }
+  
+    const data = await Cart.find({ userid: req.params.id });
+  
+    console.log(data)
+    if (data === null) {
+      return res.status(404).send({ message: "User not found", error: true, data:[] });
+    }
+  
+    if (data.length === 0) {
+      return res.status(200).send({ message: "Cart is empty", error: false });
+    }
+
     return res
-      .status(404)
-      .send({ message: "User id not provided", error: true });
-  }
+      .status(200)
+      .send({ message: "Cart is not empty", error: false, data });
 
-  const data = await Cart.find({ userid: req.params.id });
 
-  if (data === null) {
-    return res.status(404).send({ message: "User not found", error: true });
-  }
-
-  if (data.length === 0) {
-    return res.status(200).send({ message: "Cart is empty", error: false });
-  }
-
-  return res
-    .status(200)
-    .send({ message: "Cart is not empty", error: false, data });
 });
 
 cartRoute.post("/addItem", async (req: Request, res: Response) => {

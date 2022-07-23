@@ -2,7 +2,7 @@
 import React from "react";
 import { useRouter } from "next/router";
 import styles from "./product.module.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import TwitterIcon from "@mui/icons-material/Twitter";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import GoogleIcon from "@mui/icons-material/Google";
@@ -14,6 +14,8 @@ import DialogTitle from "@mui/material/DialogTitle";
 import Alert from "@mui/material/Alert";
 import Button from "@mui/material/Button";
 import axios from "axios";
+import Header from "../../components/header/Header";
+import Footer from "../components/Footer";
 
 const ProductsDetails = ({ product }: any) => {
   let [qty, setQty] = useState(1);
@@ -26,6 +28,7 @@ const ProductsDetails = ({ product }: any) => {
   const [viewplans, setViewplans] = useState(false);
   const [returnpolicy, setReturnpolicy] = useState(false);
   const [customerreviews, setCustomerreviews] = useState(false);
+  const [userid,setUserId] = useState("");
 
   const desfunction = () => {
     setDescription(true);
@@ -57,11 +60,15 @@ const ProductsDetails = ({ product }: any) => {
 
   const handleItem = () => {
     const cartItem = {
+      product_id:  product[0]._id,
       quantity: qty,
-      userid: "62db995db33c82567cdaddca",
-      ...product[0],
+      userid: userid,
+      title: product[0].title,
+      mrp: product[0].mrp,
+      price: product[0].price,
+      image: product[0].image
     };
-    console.log(cartItem);
+    // console.log(cartItem);
 
     axios.post(`http://localhost:8080/product/addToCart`, cartItem, {
       headers: { "Content-Type": "application/json" },
@@ -70,8 +77,16 @@ const ProductsDetails = ({ product }: any) => {
     setOpen(true);
   };
 
+
+  useEffect(() => {
+    const id = window.localStorage.userid || "";
+
+    setUserId(id);
+  },[])
+
   return (
     <>
+    <Header />
       <div className={styles.pmain}>
         <div>
           <img src={product[0].image} />
@@ -249,6 +264,7 @@ const ProductsDetails = ({ product }: any) => {
           <Button onClick={handleClose}>Continue</Button>
         </DialogActions>
       </Dialog>
+      <Footer />
     </>
   );
 };

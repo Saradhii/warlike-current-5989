@@ -30,7 +30,7 @@ const FormComp = () => {
 
   const handleClick = async () => {
     axios
-      .post("http://localhost:8080/AddUserAddress")
+      .post("http://localhost:8080/cart/addUserAdress")
       .then((res) => {
         router.push("/payment")
       })

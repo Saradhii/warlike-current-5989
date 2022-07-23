@@ -13,19 +13,21 @@ OauthRouter.get(
   "/google/callback",
   passport.authenticate("google"),
   (req, res) => {
-    res.redirect("http://localhost:3000/profile");
+    res.redirect("http://localhost:3000");
   }
 );
 
 OauthRouter.get("/user", (req, res) => {
   res.send(req.user);
 });
+
 OauthRouter.get(
   "/facebook/callback",
   passport.authenticate("facebook", {
-    successRedirect: "http://localhost:3000/profile",
+    successRedirect: "http://localhost:3000",
   })
 );
+
 OauthRouter.get("/user/logout", (req: Request, res: Response) => {
   req.logout(function (err) {
     if (err) {

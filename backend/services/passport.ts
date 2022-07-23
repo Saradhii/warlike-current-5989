@@ -50,7 +50,6 @@ passport.use(new GoogleStrategy({
           googleID:profile.id,
          name:profile.displayaName,
          email:profile._json.email
-
         })
     .then((res)=>{
         if(res){

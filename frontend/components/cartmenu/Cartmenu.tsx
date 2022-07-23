@@ -14,6 +14,7 @@ import Image from "next/image";
 import CloseIcon from "@mui/icons-material/Close";
 import { CartMenuStyled } from "./CartMenuStyled";
 import axios from "axios";
+import Link from "next/link"
 
 type Anchor = "right";
 
@@ -25,17 +26,24 @@ type propType = {
 };
 
 export type product = {
-  _id: string;
-  userid: string;
-  image: string;
-  name: string;
-  price: number;
   quantity: number;
+  _id: string;
+  category: string;
+  title: string;
+  mrp: number;
+  discount: boolean;
+  price: number;
+  shortDisc: string;
+  outofstock: boolean;
+  image: string;
+  userid: string;
+  fullDisc: string;
 };
 
 const CartMenu = ({ isOpen, toggleDrawer }: propType) => {
   const [total, setTotal] = React.useState(0);
   const [cartData, setCartData] = React.useState<product[]>([]);
+  const [userid,setUserId] = React.useState("")
 
   React.useEffect(() => {
     if (cartData === [] || cartData === undefined) {
@@ -44,7 +52,7 @@ const CartMenu = ({ isOpen, toggleDrawer }: propType) => {
 
     const countTotal = () => {
       const t = cartData.reduce((a, el: product) => {
-        a += el.quantity * el.price;
+        a += el.quantity * el.mrp;
         return a;
       }, 0);
       setTotal(t);
@@ -54,11 +62,14 @@ const CartMenu = ({ isOpen, toggleDrawer }: propType) => {
   }, [cartData]);
 
   React.useEffect(() => {
+    const id:string = window.localStorage.userid || "";
+    setUserId(id)
     axios
       .get(
-        `http://localhost:8080/cart/getCartData/${"62db995db33c82567cdaddca"}`
+        `http://localhost:8080/cart/getCartData/${id}`
       )
       .then((res) => {
+        console.log('res:', res)
         if (res.data.data) {
           setCartData(res.data.data);
         }
@@ -110,8 +121,8 @@ const CartMenu = ({ isOpen, toggleDrawer }: propType) => {
                       </a>
                       <div className="product-inner">
                         <p className="product-name">
-                          <a href="/">
-                            <span className="lang1">{el.name}</span>
+                        <a href={`/product/${el.product_id}`}>
+                            <span className="lang1">{el.title}</span>
                           </a>
                         </p>
                         <div className="option"></div>
@@ -124,7 +135,7 @@ const CartMenu = ({ isOpen, toggleDrawer }: propType) => {
                           </span>
                           <span className="price">
                             Rs.{" "}
-                            {el.price.toLocaleString(undefined, {
+                            {el.mrp.toLocaleString(undefined, {
                               minimumFractionDigits: 2,
                             })}
                           </span>
@@ -158,7 +169,7 @@ const CartMenu = ({ isOpen, toggleDrawer }: propType) => {
               <div className="view-cart">
                 <a
                   className="harman_btn4"
-                  href={`/Cart/${"62db995db33c82567cdaddca"}`}
+                  href={`/Cart/${userid}`}
                   data-translate="header.viewcart"
                 >
                   View Cart
