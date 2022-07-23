@@ -1,4 +1,3 @@
-import {User} from "../models/User";
 import express from "express";
 import { Router } from "express";
 import { User } from "../models/User";
@@ -57,7 +56,6 @@ UserRoute.post(
     //     }
     //   );
 
-
     // try
     // {
     //     // res.cookie("authtoken",{accessToken},{httpOnly:true,secure:false});
@@ -101,31 +99,32 @@ UserRoute.post(
     const token = req.headers.authentication;
     // console.log(token);
     const user = await User.findOne(req.params);
-    if(!token){
-        return res.send("forbiden");
     if (!token) {
       return res.send("forbiden");
-    }
-
-    try {
-      const decoded = jwt.verify(token, "SECRET1234");
-      // console.log("Decode",decoded);
-      if (decoded) {
-        const accessToken = jwt.sign(
-          {
-            first_name: user?.first_name,
-            last_name: user?.last_name,
-            id: user?._id,
-          },
-          "SECRET1234",
-          { expiresIn: "15min" }
-        );
-        res.send({ message: "new token generated", accessToken });
+      if (!token) {
+        return res.send("forbiden");
       }
-      return res.status(403).send("Forbiden");
-    } catch (e: any) {
-      console.log("err", e.message);
-      return res.status(403).send("Forbiden");
+
+      try {
+        const decoded = jwt.verify(token, "SECRET1234");
+        // console.log("Decode",decoded);
+        if (decoded) {
+          const accessToken = jwt.sign(
+            {
+              first_name: user?.first_name,
+              last_name: user?.last_name,
+              id: user?._id,
+            },
+            "SECRET1234",
+            { expiresIn: "15min" }
+          );
+          res.send({ message: "new token generated", accessToken });
+        }
+        return res.status(403).send("Forbiden");
+      } catch (e: any) {
+        console.log("err", e.message);
+        return res.status(403).send("Forbiden");
+      }
     }
   }
 );

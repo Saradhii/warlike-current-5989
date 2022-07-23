@@ -14,16 +14,18 @@ const CartItemSchema_1 = require("../models/CartItemSchema");
 const User_1 = require("../models/User");
 const cartRoute = (0, express_1.Router)();
 cartRoute.get("/getCartData/:id", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    console.log(req.params.id, req.params.id.length);
     if (req.params.id === null ||
         req.params.id === "" ||
-        req.query.id === "undefined") {
+        req.query.id === 'undefined') {
         return res
             .status(404)
-            .send({ message: "User id not provided", error: true });
+            .send({ message: "User id not provided", error: true, data: [] });
     }
     const data = yield CartItemSchema_1.Cart.find({ userid: req.params.id });
+    console.log(data);
     if (data === null) {
-        return res.status(404).send({ message: "User not found", error: true });
+        return res.status(404).send({ message: "User not found", error: true, data: [] });
     }
     if (data.length === 0) {
         return res.status(200).send({ message: "Cart is empty", error: false });

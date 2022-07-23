@@ -19,6 +19,5 @@ const UserSchema = new mongoose_1.default.Schema({
     state: String,
     pincode: Number,
     phone: String,
-    // cartProducts:[Schema.Types.ObjectId]
 });
-exports.User = mongoose_1.default.model("user", UserSchema);
+exports.User = mongoose_1.default.model("fabbag_user", UserSchema);

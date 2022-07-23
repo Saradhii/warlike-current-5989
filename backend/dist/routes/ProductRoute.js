@@ -9,40 +9,47 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const Product = require("../models/ProductSchema");
-const Cart = require("../models/CartItemSchema");
 const express_1 = require("express");
+const CartItemSchema_1 = require("../models/CartItemSchema");
+const ProductSchema_1 = require("../models/ProductSchema");
 const jwt = require("jsonwebtoken");
+const objectId = require("mongodb").ObjectID;
 const ProductRoute = (0, express_1.Router)();
-ProductRoute.get("/:id", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    console.log(req.params);
-    const SignleProduct = yield Product.find(req.params);
-    res.status(200).send(SignleProduct);
+ProductRoute.get("/:_id", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    if (req.params._id) {
+        console.log("req.params._id:", req.params._id);
+        const productData = yield ProductSchema_1.Product.find({
+            _id: req.params._id,
+        });
+        console.log("productData:", productData);
+        return res.status(200).send(productData);
+    }
+    return res.status(404).send({ message: "Something went wrong" });
 }));
 ProductRoute.get("/cartproducts/:id", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const item = {
-        userid: req.params.id
+        userid: req.params.id,
     };
-    const SignleProduct = yield Cart.find(item);
+    const SignleProduct = yield CartItemSchema_1.Cart.find(item);
     res.status(200).send(SignleProduct);
 }));
 ProductRoute.post("/addToCart", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    const token = req.headers.authentication;
-    if (!token) {
-        return res.send("forbiden");
-    }
-    try {
-        const decoded = jwt.verify(token, "SECRET1234");
-        // console.log("Decode",decoded);
-        if (decoded) {
-            const cart = new Cart(req.body);
-            cart.save();
-            res.status(200).send({ message: "Product Added successfully" });
-        }
-    }
-    catch (e) {
-        console.log("err", e.message);
-        return res.status(403).send('Forbiden');
-    }
+    // const token = req.headers.authentication;
+    // if (!token) {
+    //   return res.send("forbiden");
+    // }
+    // try {
+    // const decoded = jwt.verify(token, "SECRET1234");
+    // console.log("Decode",decoded);
+    // if (decoded) {
+    console.log(req.body);
+    const cart = new CartItemSchema_1.Cart(req.body);
+    cart.save();
+    res.status(200).send({ message: "Product Added successfully" });
+    // }
+    //   } catch (e: any) {
+    //     console.log("err", e.message);
+    //     return res.status(403).send("Forbiden");
+    //   }
 }));
 module.exports = ProductRoute;
