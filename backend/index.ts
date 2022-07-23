@@ -12,6 +12,7 @@ require("./services/passport");
 import { OauthRouter } from "./routes/Oauth";
 var cookieSession = require("cookie-session");
 const ProductRoute = require("./routes/ProductRoute");
+const dataSchema = require('./models/data')
 // const UserRoute = require("./routes/UserRoute");
 
 const PORT = process.env.PORT || 8080;
@@ -47,6 +48,21 @@ app.get("/", (req: Request, res: Response) => {
 });
 app.use("/product", ProductRoute);
 // app.use("/user",UserRoute);
+
+//search 
+app.get('/search',async(req,res)=>{
+  const { title}= req.query;
+  const pr = await dataSchema.find({$text:{$search:title}}) 
+  if(pr<=0){
+      res.status(401).send("No Result")
+  }
+  else{
+  
+      res.send(pr)
+  }
+      
+  })
+
 
 app.get("/", (req: Request, res: Response) => {
   res.send("Welcome");
