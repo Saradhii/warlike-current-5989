@@ -20,12 +20,14 @@ OauthRouter.get(
 OauthRouter.get("/user", (req, res) => {
   res.send(req.user);
 });
+
 OauthRouter.get(
   "/facebook/callback",
   passport.authenticate("facebook", {
     successRedirect: "http://localhost:3000/profile",
   })
 );
+
 OauthRouter.get("/user/logout", (req: Request, res: Response) => {
   req.logout(function (err) {
     if (err) {

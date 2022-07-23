@@ -23,16 +23,17 @@ type Cart = {
 };
 
 
-const index = () => {
-  const [data,setData] = useState<User[]>([]);
+const Index = () => {
+  const [data,setData] = useState<User>();
   const [cart,setCart] = useState<Cart[]>([]);
 
   useEffect(function() {
     var accessToken = window.localStorage.accessToken;
     var userid =  window.localStorage.userid;
     var refreshToken = window.localStorage.refreshToken;
-    var decoded : any = jwt_decode(`${accessToken}`);
-    setData(decoded);
+    // var decoded : any = jwt_decode(`${accessToken}`);
+    // setData(decoded);
+
     axios.get(`http://localhost:8080/product/cartproducts/${userid}`,{
       headers: { "Content-Type": "application/json" , "authentication" : `${accessToken}` }
     }).then((responce) => {
@@ -49,7 +50,7 @@ const index = () => {
         <img src="https://cdn.shopify.com/s/files/1/0052/7551/6995/files/FABBAG-LOGO-FINAL.png?10537"/>
         <p><b>Cart</b> &gt; <b>information</b> &gt; <b>Shipping</b> &gt; Payment</p>
         <div className={styles.payment_userdetails}>
-          <h5>Contact : {data.email} </h5>
+          {/* <h5>Contact : {data.email} </h5> */}
           <hr></hr>
           <h5>Ship to :</h5>
           <hr></hr>
@@ -196,4 +197,4 @@ const index = () => {
   )
 }
 
-export default index
+export default Index

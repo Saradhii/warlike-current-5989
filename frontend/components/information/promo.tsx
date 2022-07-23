@@ -11,7 +11,7 @@ const Promo = () => {
   const [cartData, setCartData] = React.useState<product[]>([]);
 
   useEffect(() => {
-    const id = window.localStorge.userid || "";
+    const id = window.localStorage.userid || "";
     axios
       .get(
         `http://localhost:8080/cart/getCartData/${id}`

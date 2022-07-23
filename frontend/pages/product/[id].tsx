@@ -14,6 +14,8 @@ import DialogTitle from "@mui/material/DialogTitle";
 import Alert from "@mui/material/Alert";
 import Button from "@mui/material/Button";
 import axios from "axios";
+import Header from "../../components/header/Header";
+import Footer from "../components/Footer";
 
 const ProductsDetails = ({ product }: any) => {
   let [qty, setQty] = useState(1);
@@ -72,6 +74,7 @@ const ProductsDetails = ({ product }: any) => {
 
   return (
     <>
+    <Header />
       <div className={styles.pmain}>
         <div>
           <img src={product[0].image} />
@@ -249,6 +252,7 @@ const ProductsDetails = ({ product }: any) => {
           <Button onClick={handleClose}>Continue</Button>
         </DialogActions>
       </Dialog>
+      <Footer />
     </>
   );
 };

@@ -7,10 +7,16 @@ import { product } from "../cartmenu/Cartmenu";
 import axios from "axios";
 
 const CartPage = ({ Data }: any) => {
+
+
+
   const [total, setTotal] = React.useState(0);
   const [cartData, setCartData] = React.useState<product[]>(
     Data.data.data ? Data.data.data : []
   );
+
+
+
   let updateTimer: any;
 
   React.useEffect(() => {
