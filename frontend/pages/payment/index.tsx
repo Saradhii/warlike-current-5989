@@ -9,8 +9,7 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import CreditCardIcon from "@mui/icons-material/CreditCard";
 import axios from "axios";
 import Link from "next/link";
-import Promo from "../../components/information/promo";
-
+import Promo from "../../components/information/Promo";
 
 type User = {
   first_name: string;
@@ -217,7 +216,6 @@ const Index = () => {
             </p>
           </div>
         </div>
-
 
         <div className={styles.sidebar}>
           <Promo />
