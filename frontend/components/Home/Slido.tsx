@@ -10,7 +10,7 @@ import "swiper/css/navigation";
 
 
 // import required modules
-import { Pagination, Navigation, Autoplay } from "swiper";
+import {Autoplay } from "swiper";
 
 export default function Slido() {
   return (

@@ -54,8 +54,8 @@ node_modules
 package-lock.json
 size-snapshot.json
 
-config
-.env
+# config
+# .env
 
 # Local Netlify folder
 .netlify
