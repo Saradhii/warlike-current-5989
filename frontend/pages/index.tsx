@@ -12,7 +12,7 @@ import jwt_decode from "jwt-decode";
 import Header from '../components/header/Header'
 
 const Home: NextPage = () => {
-  // For header copy them to header and implement it
+ 
   
 
   

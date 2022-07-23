@@ -1,4 +1,8 @@
 .mainContainer {
+  position: sticky;
+background-color: white;
+top: 0px;
+
   width: 100%;
 
   display: flex;
@@ -6,6 +10,8 @@
   align-items: center;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
   padding: 0px 20px 0px 20px;
+
+  
 }
 .mainContainer h3 {
   color: rgb(241, 193, 97);
