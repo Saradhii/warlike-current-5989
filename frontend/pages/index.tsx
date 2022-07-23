@@ -9,6 +9,7 @@ import MainSlider from "../components/Home/MainSlider";
 import CartMenu from "../components/cartmenu/Cartmenu";
 import Script from "next/script";
 import jwt_decode from "jwt-decode";
+import Header from '../components/header/Header'
 
 const Home: NextPage = () => {
   // For header copy them to header and implement it
@@ -42,6 +43,7 @@ const Home: NextPage = () => {
     
       <main className={styles.main}>
         {/* For header copy them to header and implement it */}
+        <Header/>
         <Button onClick={() => setIsOpen(!isOpen)}>{"Cart Menu"}</Button>
         <CartMenu isOpen={isOpen} toggleDrawer={toggleDrawer} />
       </main>
