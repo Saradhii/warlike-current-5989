@@ -1,5 +1,6 @@
 import { Request, Response, Router } from "express";
 import { Cart } from "../models/CartItemSchema";
+import { User } from "../models/User"
 
 const cartRoute = Router();
 
@@ -77,5 +78,23 @@ cartRoute.patch("/updateCart", async (req: Request, res: Response) => {
     data: cartData,
   });
 });
+
+cartRoute.post("/addUserAdress", async (req: Request, res: Response) => {
+  if(req.body==="undefined" || req.body===undefined || req.body==={}){
+    return res
+    .status(200)
+    .send({ message: "Something went wrong!", error: false });
+  }
+
+
+  const userData = User.updateOne({email: req.body.email}, {$set: req.body});
+
+  return res.status(200).send({
+    message: "User data updated successfully",
+    error: false,
+  });
+  
+
+})
 
 export default cartRoute;

@@ -2,6 +2,7 @@ import React from "react";
 import { CartPageStyled } from "./CartPageStyled";
 import CloseIcon from "@mui/icons-material/Close";
 import Image from "next/image";
+import Link from "next/link"
 import { product } from "../cartmenu/Cartmenu";
 import axios from "axios";
 
@@ -138,7 +139,7 @@ const CartPage = ({ Data }: any) => {
                         <td className="remove">
                           <a
                             className="remove-cart"
-                            href="/cart/change?line=1&amp;quantity=0"
+                            href="/cart"
                           >
                             <CloseIcon onClick={() => handleDelete(item._id)} />
                           </a>
@@ -160,7 +161,12 @@ const CartPage = ({ Data }: any) => {
               </div>
               <div className="btns">
                 <button>Update Cart</button>
-                <button>Check Out</button>
+                <button>
+                  <Link
+                  href="/Address">
+                  Check Out
+                  </Link>
+                </button>
               </div>
             </div>
           </div>

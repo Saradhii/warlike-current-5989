@@ -1,41 +1,43 @@
 import { Divider, List } from "@mui/material";
+import axios from "axios";
 import Image from "next/image";
-import React from "react";
+import React, { useEffect } from "react";
 import { product } from "../cartmenu/Cartmenu";
 import { PromoDiv } from "./formStyled";
 import InputComp from "./InputComp";
 
 const Promo = () => {
   const [total, setTotal] = React.useState(0);
-  const [cartData, setCartData] = React.useState<product[]>([
-    {
-      _id: "4654",
-      price: 1199,
-      image:
-        "https://cdn.shopify.com/s/files/1/0052/7551/6995/products/c2p-pro-epic-matte-lip-ink-set-3_e9cae271-12b2-41a1-8630-1c7d86eb06f4_small.png?v=1653389987",
-      quantity: 1,
-      name: "C2P Pro Epic Matte Lip Ink Set",
-      userid: "fds4413",
-    },
-    {
-      _id: "dgsew",
-      price: 599,
-      image:
-        "https://cdn.shopify.com/s/files/1/0052/7551/6995/products/Women_sPage-1_small.gif?v=1656064858",
-      quantity: 5,
-      name: "The Beauty Bundle July Fab Bag",
-      userid: "2edsge",
-    },
-    {
-      _id: "fdsgbs",
-      price: 1199,
-      image:
-        "https://cdn.shopify.com/s/files/1/0052/7551/6995/products/c2p-pro-epic-matte-lip-ink-set-4_small.jpg?v=1634904385",
-      quantity: 5,
-      name: "C2P Pro Epic matte lip ink - 04 Lustrous Fuschsia",
-      userid: "fsvwwr2",
-    },
-  ]);
+  const [cartData, setCartData] = React.useState<product[]>([]);
+
+  useEffect(() => {
+    axios
+      .get(
+        `http://localhost:8080/cart/getCartData/${"62d977ac547498a0d835e4dc"}`
+      )
+      .then((res) => {
+        if (res.data.data) {
+          setCartData(res.data.data);
+        }
+      })
+      .catch((err) => console.log(err));
+  }, []);
+
+  useEffect(() => {
+    if (cartData === [] || cartData === undefined) {
+      return;
+    }
+
+    const countTotal = () => {
+      const t = cartData.reduce((a, el: product) => {
+        a += el.quantity * el.price;
+        return a;
+      }, 0);
+      setTotal(t);
+    };
+
+    countTotal();
+  }, [cartData]);
 
   return (
     <PromoDiv>
@@ -97,7 +99,12 @@ const Promo = () => {
         <div className="summary">
           <p>
             <span>Subtotal</span>
-            <span>₹2,997.00</span>
+            <span>
+              ₹
+              {total.toLocaleString(undefined, {
+                minimumFractionDigits: 2,
+              })}
+            </span>
           </p>
           <p>
             <span>Shipping</span>
@@ -109,10 +116,10 @@ const Promo = () => {
           <p>
             <span>Total</span>
             <span>
-              <span className="currency">
-                INR
-              </span>{" "}
-              ₹2,997.00
+              <span className="currency">INR</span> ₹
+              {total.toLocaleString(undefined, {
+                minimumFractionDigits: 2,
+              })}
             </span>
           </p>
         </div>

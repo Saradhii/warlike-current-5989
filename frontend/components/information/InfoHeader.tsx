@@ -19,6 +19,7 @@ const InfoHeader = () => {
           alt="FAB BAG"
           className="logo__image logo__image--medium"
           src="https://cdn.shopify.com/s/files/1/0052/7551/6995/files/FABBAG-LOGO-FINAL.png?10537"
+          priority={1}
         />
       </a>
       <Breadcrumbs
