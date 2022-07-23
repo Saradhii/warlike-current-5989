@@ -3,7 +3,7 @@ import React from "react";
 import FormComp from "./FormComp";
 import { InformationPageDiv, FormDiv } from "./formStyled";
 import InfoHeader from "./InfoHeader";
-import Promo from "./Promo";
+import Promo from "./promo";
 
 const InformationPage = () => {
   return (
