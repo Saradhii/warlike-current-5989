@@ -38,6 +38,7 @@ export type product = {
   image: string;
   userid: string;
   fullDisc: string;
+  product_id: string;
 };
 
 const CartMenu = ({ isOpen, toggleDrawer }: propType) => {
