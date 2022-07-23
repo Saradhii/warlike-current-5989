@@ -20,6 +20,7 @@ cartRoute.get("/getCartData/:id", async (req: Request, res: Response) => {
   
     const data = await Cart.find({ userid: req.params.id });
   
+    console.log(data)
     if (data === null) {
       return res.status(404).send({ message: "User not found", error: true, data:[] });
     }
@@ -30,7 +31,7 @@ cartRoute.get("/getCartData/:id", async (req: Request, res: Response) => {
 
     return res
       .status(200)
-      .send({ message: "Cart is not empty", error: false });
+      .send({ message: "Cart is not empty", error: false, data });
 
 
 });

@@ -30,7 +30,6 @@ const UserSchema = new mongoose.Schema<SchemaType>({
   state: String,
   pincode: Number,
   phone: String,
-  // cartProducts:[Schema.Types.ObjectId]
 });
 
 export const User = mongoose.model("fabbag_user", UserSchema);

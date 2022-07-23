@@ -92,8 +92,9 @@ cursor: pointer;
   grid-template-columns: auto;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
   position: absolute;
-  left: 50px;
-  
+  left: 6%;
+  background: white;
+  z-index: 1000;
   overflow-y: auto;
   cursor: pointer;
 }

@@ -11,8 +11,10 @@ import Alert from "@mui/material/Alert";
 import Button from "@mui/material/Button";
 import Header from "../../components/header/Header";
 import Footer from "../components/Footer";
+import { useRouter } from 'next/router'
 
 const Signin = () => {
+  const router = useRouter()
   const [formData, SetFormData] = useState({});
   const [open, setOpen] = React.useState(false);
   const handleClose = () => {
@@ -52,6 +54,18 @@ const Signin = () => {
         }
       });
   };
+
+  const handleFacebook = () => {
+    router.push("http://localhost:8080/auth/facebook")
+  }
+
+  const handleGoogle = () => {
+    router.push("http://localhost:8080/auth/google")
+  }
+
+
+
+
   return (
     <>
       <Header />
@@ -59,11 +73,11 @@ const Signin = () => {
       <div className={styles.signupMain}>
         <div className={styles.signupm}>
           <h1>Sign in</h1>
-          <button className={`${styles.loginBtn} ${styles.loginBtnfacebook}`}>
+          <button onClick={handleFacebook} className={`${styles.loginBtn} ${styles.loginBtnfacebook}`}>
             Sign in with Facebook
           </button>
           <br></br>
-          <button className={`${styles.loginBtn} ${styles.loginBtngoogle}`}>
+          <button onClick={handleGoogle} className={`${styles.loginBtn} ${styles.loginBtngoogle}`}>
             Sign in with Google
           </button>
           <br></br>

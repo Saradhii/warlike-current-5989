@@ -25,7 +25,7 @@ const CartPage = ({ Data }: any) => {
     }
     const countTotal = () => {
       const t = cartData.reduce((a, el: product) => {
-        a += el.quantity * el.price;
+        a += el.quantity * el.mrp;
         return a;
       }, 0);
       setTotal(t);
@@ -112,8 +112,8 @@ const CartPage = ({ Data }: any) => {
                           </div>
                         </td>
                         <td className="item">
-                          <a href="/products">
-                            <span className="lang1">{item.name}</span>
+                          <a href={`/product/${item.product_id}`}>
+                            <span className="lang1">{item.title}</span>
                           </a>
                         </td>
                         <td className="qty">
@@ -136,7 +136,7 @@ const CartPage = ({ Data }: any) => {
                         <td className="price">
                           <span className="saso-cart-item-line-price">
                             Rs.{" "}
-                            {(item.quantity * item.price).toLocaleString(
+                            {(item.quantity * item.mrp).toLocaleString(
                               undefined,
                               { minimumFractionDigits: 2 }
                             )}

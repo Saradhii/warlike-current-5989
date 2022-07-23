@@ -4,6 +4,7 @@ import Image from "next/image";
 import React, { useEffect } from "react";
 import { product } from "../cartmenu/Cartmenu";
 import { PromoDiv } from "./formStyled";
+import Link from "next/link"
 import InputComp from "./InputComp";
 
 const Promo = () => {
@@ -31,7 +32,7 @@ const Promo = () => {
 
     const countTotal = () => {
       const t = cartData.reduce((a, el: product) => {
-        a += el.quantity * el.price;
+        a += el.quantity * el.mrp;
         return a;
       }, 0);
       setTotal(t);
@@ -71,15 +72,15 @@ const Promo = () => {
                       </a>
                       <div className="product-inner">
                         <p className="product-name">
-                          <a href="/">
-                            <span className="lang1">{el.name}</span>
+                          <a href={`/product/${el.product_id}`}>
+                            <span className="lang1">{el.title}</span>
                           </a>
                         </p>
                       </div>
                       <div className="cart-collateral">
                         <span className="price">
                           ₹{" "}
-                          {el.price.toLocaleString(undefined, {
+                          {el.mrp.toLocaleString(undefined, {
                             minimumFractionDigits: 2,
                           })}
                         </span>

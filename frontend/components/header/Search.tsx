@@ -6,16 +6,16 @@ export default function Search({ data }: any) {
     <>
       {data.map((ele: any) => {
         return (
-          <div className={styles.childsearch} key={ele._id}>
-            <Link href={`/product/${ele._id}`}>
+          <Link key={ele._id} href={`/product/${ele._id}`}>
+            <div key={ele._id} className={styles.childsearch}>
               <img src={ele.image} />
               <div>
                 <p>{ele.title}</p>
 
                 <span>{`₹${ele.price}`}</span>
               </div>
-            </Link>
-          </div>
+            </div>
+          </Link>
         );
       })}
     </>
