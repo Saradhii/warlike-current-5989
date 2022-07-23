@@ -13,7 +13,7 @@ OauthRouter.get(
   "/google/callback",
   passport.authenticate("google"),
   (req, res) => {
-    res.redirect("http://localhost:3000");
+    res.redirect("https://warlike-current-5989.vercel.app/");
   }
 );
 
@@ -24,7 +24,7 @@ OauthRouter.get("/user", (req, res) => {
 OauthRouter.get(
   "/facebook/callback",
   passport.authenticate("facebook", {
-    successRedirect: "http://localhost:3000",
+    successRedirect: "https://warlike-current-5989.vercel.app/",
   })
 );
 

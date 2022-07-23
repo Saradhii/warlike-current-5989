@@ -70,7 +70,7 @@ const ProductsDetails = ({ product }: any) => {
     };
     // console.log(cartItem);
 
-    axios.post(`http://localhost:8080/product/addToCart`, cartItem, {
+    axios.post(`https://fabbag-backend.herokuapp.com/product/addToCart`, cartItem, {
       headers: { "Content-Type": "application/json" },
     });
 
@@ -272,7 +272,7 @@ const ProductsDetails = ({ product }: any) => {
 export const getServerSideProps = async (context: any) => {
   const { id } = context.query;
 
-  const data = await fetch(`http://localhost:8080/product/${id}`).then((x) =>
+  const data = await fetch(`https://fabbag-backend.herokuapp.com/product/${id}`).then((x) =>
     x.json()
   );
 

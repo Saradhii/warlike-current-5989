@@ -67,7 +67,7 @@ const CartMenu = ({ isOpen, toggleDrawer }: propType) => {
     setUserId(id)
     axios
       .get(
-        `http://localhost:8080/cart/getCartData/${id}`
+        `https://fabbag-backend.herokuapp.com/cart/getCartData/${id}`
       )
       .then((res) => {
         console.log('res:', res)
@@ -80,7 +80,7 @@ const CartMenu = ({ isOpen, toggleDrawer }: propType) => {
 
   const handleDelete = (id: string) => {
     axios
-      .delete(`http://localhost:8080/cart/deleteProduct/${id}`)
+      .delete(`https://fabbag-backend.herokuapp.com/cart/deleteProduct/${id}`)
       .then((res) => {
         console.log(res);
       })

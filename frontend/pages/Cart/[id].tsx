@@ -29,7 +29,7 @@ const cart = ({ Data }: any) => {
 
 export const getServerSideProps = async (context: any) => {
   const data = await axios
-    .get(`http://localhost:8080/cart/getCartData/${context.query.id}`)
+    .get(`https://fabbag-backend.herokuapp.com/cart/getCartData/${context.query.id}`)
     .then((res) => {
       if (res.data) {
         return res.data;

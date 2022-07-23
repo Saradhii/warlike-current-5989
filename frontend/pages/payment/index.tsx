@@ -36,7 +36,7 @@ const Index = () => {
     // setData(decoded);
 
     axios
-      .get(`http://localhost:8080/cart/getCartData/${userid}`, {
+      .get(`https://fabbag-backend.herokuapp.com/cart/getCartData/${userid}`, {
         headers: {
           "Content-Type": "application/json",
           authentication: `${accessToken}`,

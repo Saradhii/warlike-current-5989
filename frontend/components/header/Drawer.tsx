@@ -23,7 +23,7 @@ export default function SwipeableTemporaryDrawer() {
   const searchProduct = (e: any) => {
     const value = e.target.value;
     axios
-      .get(`http://localhost:8080/search?title=${value}`)
+      .get(`https://fabbag-backend.herokuapp.com/search?title=${value}`)
       .then((res) => {
         if (res.status == 200) {
           setData(res.data);

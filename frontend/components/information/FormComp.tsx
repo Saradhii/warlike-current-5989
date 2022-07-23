@@ -30,7 +30,7 @@ const FormComp = () => {
 
   const handleClick = async () => {
     axios
-      .post("http://localhost:8080/cart/addUserAdress")
+      .post("https://fabbag-backend.herokuapp.com/cart/addUserAdress")
       .then((res) => {
         router.push("/payment")
       })

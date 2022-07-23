@@ -50,7 +50,7 @@ const CartPage = ({ Data }: any) => {
 
     updateTimer = setTimeout(() => {
       axios
-        .patch("http://localhost:8080/cart/updateCart", {
+        .patch("https://fabbag-backend.herokuapp.com/cart/updateCart", {
           product_id,
           userid,
           quantity,
@@ -64,7 +64,7 @@ const CartPage = ({ Data }: any) => {
 
   const handleDelete = (id: string) => {
     axios
-      .delete(`http://localhost:8080/cart/deleteProduct/${id}`)
+      .delete(`https://fabbag-backend.herokuapp.com/cart/deleteProduct/${id}`)
       .then((res) => {
         console.log(res);
       })

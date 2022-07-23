@@ -15,7 +15,7 @@ const Promo = () => {
     const id = window.localStorage.userid || "";
     axios
       .get(
-        `http://localhost:8080/cart/getCartData/${id}`
+        `https://fabbag-backend.herokuapp.com/cart/getCartData/${id}`
       )
       .then((res) => {
         if (res.data.data) {

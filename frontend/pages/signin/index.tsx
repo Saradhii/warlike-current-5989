@@ -37,7 +37,7 @@ const Signin = () => {
     e.preventDefault();
     console.log(formData);
     axios
-      .post(`http://localhost:8080/user/signin`, formData, {
+      .post(`https://fabbag-backend.herokuapp.com/user/signin`, formData, {
         headers: { "Content-Type": "application/json" },
       })
       .then((responce) => {
@@ -56,11 +56,11 @@ const Signin = () => {
   };
 
   const handleFacebook = () => {
-    router.push("http://localhost:8080/auth/facebook")
+    router.push("https://fabbag-backend.herokuapp.com/auth/facebook")
   }
 
   const handleGoogle = () => {
-    router.push("http://localhost:8080/auth/google")
+    router.push("https://fabbag-backend.herokuapp.com/auth/google")
   }
 
 

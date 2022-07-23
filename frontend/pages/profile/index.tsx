@@ -30,7 +30,7 @@ const Profile = () => {
     setUser(decoded);
     // if(isTokenExpired(accessToken))
     // {
-    //     axios.post(`http://localhost:8080/user/newtoken`, {headers: { "authentication": `${refreshToken}` }
+    //     axios.post(`https://fabbag-backend.herokuapp.com/user/newtoken`, {headers: { "authentication": `${refreshToken}` }
     //     }).then((responce) => {
     //     const { data } = responce;
     //     localStorage.setItem("accessToken",data.accessToken);
@@ -86,7 +86,7 @@ const Profile = () => {
 
 //   console.log(userid);
 
-//   const data = await fetch(`http://localhost:8080/user/${userid}`,{
+//   const data = await fetch(`https://fabbag-backend.herokuapp.com/user/${userid}`,{
 //     headers: { "authentication": `${token}` }}).then(
 //         (x)=> x.json()
 //     );

@@ -45,7 +45,7 @@ export default function Header() {
     localStorage.removeItem("accessToken");
 
     axios
-      .get("http://localhost:8080/auth/user/logout")
+      .get("https://fabbag-backend.herokuapp.com/auth/user/logout")
       .then((res) => console.log(res))
       .catch((err) => console.log(err));
   };
@@ -54,7 +54,7 @@ export default function Header() {
     const id: string = window.localStorage.userid || "";
     setUserId(id);
     axios
-      .get(`http://localhost:8080/cart/getCartData/${id}`)
+      .get(`https://fabbag-backend.herokuapp.com/cart/getCartData/${id}`)
       .then((res) => {
         console.log("res:", res);
         if (res.data.data) {
