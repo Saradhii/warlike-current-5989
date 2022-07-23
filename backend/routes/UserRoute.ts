@@ -1,4 +1,4 @@
-const User = require("../models/User");
+import {User} from "../models/User";
 import express from "express";
 import { Router } from "express";
 const crypto = require("node:crypto");
@@ -65,7 +65,7 @@ UserRoute.get("/profile/:id",async (req: express.Request, res: express.Response)
     // console.log("hi");
     const token = req.headers.authentication;
     // console.log(token);
-    const user = await User.find(req.params);
+    const user = await User.findOne(req.params);
     if(!token){
         return res.send("forbiden");
     }
