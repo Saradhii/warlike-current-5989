@@ -1,6 +1,6 @@
 import React from 'react'
 import styles from '../../styles/header.module.css'
-export default function Search({data }:any) {
+export default function Search({data}:any) {
   return (
     <>
     { data.map((ele:any) => {

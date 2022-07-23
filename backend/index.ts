@@ -12,7 +12,7 @@ require("./services/passport");
 import { OauthRouter } from "./routes/Oauth";
 var cookieSession = require("cookie-session");
 const ProductRoute = require("./routes/ProductRoute");
-// const UserRoute = require("./routes/UserRoute");
+const UserRoute = require("./routes/UserRoute");
 
 const PORT = process.env.PORT || 8080;
 
@@ -39,18 +39,12 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors({ origin: "http://localhost:3000" }));
 
 app.use("/product", ProductRoute);
-// app.use("/user", UserRoute);
 app.use("/cart", cartRoute);
 
 app.get("/", (req: Request, res: Response) => {
   res.send("Welcome");
 });
-app.use("/product", ProductRoute);
-// app.use("/user",UserRoute);
-
-app.get("/", (req: Request, res: Response) => {
-  res.send("Welcome");
-});
+app.use("/user",UserRoute);
 
 server.listen(PORT, () => {
   connection.then((con) => {

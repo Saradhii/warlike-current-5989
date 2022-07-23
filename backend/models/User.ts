@@ -33,4 +33,4 @@ const UserSchema = new mongoose.Schema<SchemaType>({
   // cartProducts:[Schema.Types.ObjectId]
 });
 
-export const User = mongoose.model("user", UserSchema);
+export const User = mongoose.model("fabbag_user", UserSchema);

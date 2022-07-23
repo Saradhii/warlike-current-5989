@@ -52,7 +52,7 @@ export default function SwipeableTemporaryDrawer() {
       }
 
       setState({ ...state, [anchor]: open });
-      setData([])
+      setData([]);
     };
 
   const list = (anchor: Anchor) => (
@@ -63,9 +63,7 @@ export default function SwipeableTemporaryDrawer() {
       <List>
         <div className={styles.drawerMain1}>
           <p>What are you loocking for?</p>
-          <span onClick={toggleDrawer(anchor, false)
-          
-          }>
+          <span onClick={toggleDrawer(anchor, false)}>
             <VscClose />
           </span>
         </div>
