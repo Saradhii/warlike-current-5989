@@ -2,7 +2,7 @@
 // const passport = require("passport");
 // import express from "express";
 
-// const CLIENT_URL = "http://localhost:3000/";
+// const CLIENT_URL = "https://warlike-current-5989.vercel.app/";
 
 // router.get("/login/success", (req : express.Request, res: express.Response) => {
 //   if (req.user ) {

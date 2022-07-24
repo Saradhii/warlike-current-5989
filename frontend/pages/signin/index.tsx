@@ -19,7 +19,7 @@ const Signin = () => {
   const [open, setOpen] = React.useState(false);
   const handleClose = () => {
     setOpen(false);
-    window.location.href = "http://localhost:3000/profile";
+    window.location.href = "https://warlike-current-5989.vercel.app/profile";
   };
 
   const handleChange = (e: any) => {
@@ -107,7 +107,7 @@ const Signin = () => {
             <input type="submit" className={styles.subtn} value="Sign in" />
           </form>
           <p style={{ paddingLeft: "150px" }}>Or</p>
-          <a href="http://localhost:3000/signup">
+          <a href="https://warlike-current-5989.vercel.app/signup">
             <button className={styles.subtn}>Create An Account</button>
           </a>
         </div>

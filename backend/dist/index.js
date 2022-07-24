@@ -44,7 +44,7 @@ app.use(passport_1.default.session());
 app.use("/auth", Oauth_1.OauthRouter);
 app.use(body_parser_1.default.json());
 app.use(body_parser_1.default.urlencoded({ extended: true }));
-app.use((0, cors_1.default)({ origin: "http://localhost:3000" }));
+app.use((0, cors_1.default)({ origin: "https://warlike-current-5989.vercel.app" }));
 app.use("/product", ProductRoute);
 app.use("/cart", Cart_routes_1.default);
 app.get("/", (req, res) => {
