@@ -93,7 +93,7 @@ cartRoute.post("/addUserAdress", async (req: Request, res: Response) => {
   }
 
 
-  const userData = User.updateOne({email: req.body.email}, {$set: req.body});
+  const userData = User.updateOne({_id: req.body.userid}, {$set: req.body});
 
   return res.status(200).send({
     message: "User data updated successfully",

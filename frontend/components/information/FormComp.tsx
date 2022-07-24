@@ -1,5 +1,5 @@
 import Link from "next/link";
-import React, { ChangeEvent, useState } from "react";
+import React, { ChangeEvent, useState ,useEffect} from "react";
 import { FormDiv } from "./formStyled";
 import InputComp from "./InputComp";
 import NavigateBeforeIcon from "@mui/icons-material/NavigateBefore";
@@ -23,6 +23,7 @@ type addressTypes = {
 const FormComp = () => {
   const router = useRouter()
   const [userAddress, setUserAddress] = useState({});
+  const [userid,setUserId] = useState("");
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     setUserAddress({ ...userAddress, [e.target.name]: e.target.value });
@@ -30,12 +31,17 @@ const FormComp = () => {
 
   const handleClick = async () => {
     axios
-      .post("https://fabbag-backend.herokuapp.com/cart/addUserAdress")
+      .post("https://fabbag-backend.herokuapp.com/cart/addUserAdress", {userid,...userAddress})
       .then((res) => {
         router.push("/payment")
       })
       .catch((res) => console.log(res));
   };
+
+  useEffect(() => {
+    const id = window.localStorage.userid;
+    setUserId(id);
+  },[])
 
   return (
     <FormDiv>
