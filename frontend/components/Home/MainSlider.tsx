@@ -141,7 +141,7 @@ const MainSlider = () => {
             alt=""
           />
           <img
-            src="https://scontent.cdninstagram.com/v/t51.2885-15/293796907_719156479372990_2032374052008623233_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=8ae9d6&_nc_ohc=_BYhzM9PPhcAX8EYZIx&_nc_ht=scontent.cdninstagram.com&edm=ANo9K5cEAAAA&oh=00_AT9B4WTRqJ8w0n0l_ZjgQWEEusILLckhLQAq_CyDZJKkFg&oe=62DBDF8B"
+            src="https://scontent.cdninstagram.com/v/t51.2885-15/295043222_376783614538160_5318452328241183622_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=8ae9d6&_nc_ohc=y-9NBZ5WgZ0AX-OEBa-&_nc_ht=scontent.cdninstagram.com&edm=ANo9K5cEAAAA&oh=00_AT_--73JKWpILZNrpBwsWfxIE4NBA_9boX0uVEZ7fKbHaw&oe=62E31DD8"
             alt=""
           />
           <img
