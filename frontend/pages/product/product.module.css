@@ -1,6 +1,6 @@
 .pmain{
-     border:2px solid black; 
     width:80%;
+    height:600px;
     margin:auto;
     margin-top: 10px;
     padding:20px;
@@ -54,7 +54,6 @@
     color:#e5b95f;
 }
 .pbody{
-    border:2px solid black; 
     width:60%;
     margin:auto;
     margin-top: 5px;
@@ -63,6 +62,7 @@
     grid-template-rows: 50px 900px;
     gap:10px;
     padding-top: 30px;
+    height:1500px;
 }
 .pbody>div{
     /* border:2px solid black; */
