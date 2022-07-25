@@ -48,6 +48,8 @@ export default function Header() {
       .get("https://fabbag-backend.herokuapp.com/auth/user/logout")
       .then((res) => console.log(res))
       .catch((err) => console.log(err));
+    alert("Logged out sucessfully");
+    window.location.href="https://warlike-current-5989.vercel.app/";
   };
 
   React.useEffect(() => {
