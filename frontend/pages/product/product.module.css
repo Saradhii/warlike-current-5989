@@ -1,5 +1,5 @@
 .pmain{
-    /* border:2px solid black; */
+     border:2px solid black; 
     width:80%;
     margin:auto;
     margin-top: 10px;
@@ -8,6 +8,7 @@
     grid-template-columns: 39% 58%;
     grid-template-rows: 400px;
     gap:10px;
+    margin-bottom:10px;
 }
 .pmain>div{
     /* border: 2px solid black; */
@@ -53,7 +54,7 @@
     color:#e5b95f;
 }
 .pbody{
-    /* border:2px solid black; */
+    border:2px solid black; 
     width:60%;
     margin:auto;
     margin-top: 5px;
