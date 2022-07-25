@@ -40,7 +40,7 @@ app.use("/auth", OauthRouter);
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.use(cors({ origin: ["https://warlike-current-5989.vercel.app","http://localhost:3000"] }));
+app.use(cors({  }));
 
 app.use("/product", ProductRoute);
 app.use("/cart", cartRoute);
@@ -80,3 +80,7 @@ server.listen(PORT, () => {
     console.log(`Server is running on PORT http://localhost:${PORT}`);
   });
 });
+
+
+
+
